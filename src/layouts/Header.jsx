@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import logo from "../images/logo2.png";
+import logo from "../images/logo.png";
 
 export default function Header() {
     const [activeId, setActiveId] = useState("home");
@@ -51,14 +51,14 @@ export default function Header() {
   
     return (
     <nav className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4 sm:gap-6 py-4 px-3 max-w-7xl mx-auto w-full">
-        <div className="flex w-full items-center justify-between sm:justify-start gap-3">
+        <div className="flex items-center justify-between sm:justify-start gap-3">
             <a href="#home" className={`${title} inline-flex items-center gap-3 sm:gap-4 leading-none`} onClick={handleScroll("home")}>
-                <img src={logo} alt="Logo" className="inline-block w-9 h-9" />
+                <img src={logo} alt="Logo" className="inline-block w-9 h-9 rounded-md" />
                 <span className="text-2xl sm:text-3xl self-center sm:self-end">Shared</span>
             </a>
             <button
                 type="button"
-                className="sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border cursor-pointer border-gray-200 shadow-sm hover:scale-95 transition-colors duration-200"
+                className="sm:hidden inline-flex items-center justify-center w-10 h-10 roundcursor-pointer border-gray-200 shadow-sm hover:scale-95 transition-colors duration-200"
                 aria-label="Ouvrir le menu"
                 onClick={() => setMenuOpen((prev) => !prev)}
             >
@@ -84,19 +84,22 @@ export default function Header() {
                     </a>
                 ))}
             </div>
-            <a
-                href="#download"
-                onClick={handleScroll("download")}
-                className="inline-flex items-center justify-center h-10 rounded-full px-4 sm:px-5 text-sm sm:text-md font-semibold text-white transition-all duration-200 hover:scale-98 hover:shadow-md"
-                style={{
-                    backgroundImage:
-                    "linear-gradient(135deg, #4A90E2 0%, #E74C3C 100%)",
-                    boxShadow:
-                        "0 10px 20px rgba(0,0,0,0.15), 0 4px 10px rgba(0,0,0,0.1)",
-                }}
-            >
-                Télécharger
-            </a>
+        </div>
+
+        <div className="flex">
+        <a
+            href="#download"
+            onClick={handleScroll("download")}
+            className="inline-flex items-center justify-center h-10 rounded-full px-4 sm:px-5 text-md sm:text-md font-semibold text-white transition-all duration-200 hover:scale-98 hover:shadow-md"
+            style={{
+                backgroundImage:
+                "linear-gradient(135deg, #7B4DFF 0%, #D43FA6 50%, #F58A1F 100%)",
+                boxShadow:
+                    "0 10px 20px rgba(0,0,0,0.15), 0 4px 10px rgba(0,0,0,0.1)",
+            }}
+        >
+            Télécharger
+        </a>
         </div>
     </nav>
     );
