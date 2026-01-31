@@ -46,7 +46,9 @@ const floatingImages = [
     },
     {
         src: message1,
-        className: `${floatingMessageClass} left-12 top-50 w-32 opacity-70 sm:left-12 sm:top-190 sm:w-100`,
+        className: `${floatingMessageClass} message-reveal-left left-12 top-50 w-32 sm:left-12 sm:top-190 sm:w-100`,
+        delayMs: 100,
+        opacity: 0.7,
     },
     {
         src: square2,
@@ -54,7 +56,9 @@ const floatingImages = [
     },
     {
         src: message2,
-        className: `${floatingMessageClass} top-6 w-40 -translate-x-1/2 opacity-75 sm:top-170 sm:left-260 sm:w-100`,
+        className: `${floatingMessageClass} message-reveal-right top-6 w-40 -translate-x-1/2 sm:top-170 sm:left-260 sm:w-100`,
+        delayMs: 250,
+        opacity: 0.75,
     },
     {
         src: square3,
@@ -62,7 +66,9 @@ const floatingImages = [
     },
     {
         src: message3,
-        className: `${floatingMessageClass} top-6 w-40 -translate-x-1/2 opacity-75 sm:top-220 sm:left-65 sm:w-115`,
+        className: `${floatingMessageClass} message-reveal-left top-6 w-40 -translate-x-1/2 sm:top-220 sm:left-65 sm:w-115`,
+        delayMs: 400,
+        opacity: 0.75,
     },
 ];
 
@@ -102,11 +108,19 @@ export default function Home() {
                 />
             </div>
             <div className={floatingLayerClass}>
-                {floatingImages.map(({ src, className }, index) => (
+                {floatingImages.map(({ src, className, delayMs, opacity }, index) => (
                     <img
                         key={`${src}-${index}`}
                         src={src}
                         className={className}
+                        style={
+                            delayMs || opacity
+                                ? {
+                                      animationDelay: delayMs ? `${delayMs}ms` : undefined,
+                                      "--message-opacity": opacity ?? undefined,
+                                  }
+                                : undefined
+                        }
                         alt=""
                         aria-hidden="true"
                     />

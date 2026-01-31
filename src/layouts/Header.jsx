@@ -50,7 +50,7 @@ export default function Header() {
     }, [links]);
   
     return (
-    <nav className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4 sm:gap-6 py-4 px-3 max-w-7xl mx-auto w-full">
+    <nav className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4 sm:gap-6 py-2 px-3 max-w-7xl mx-auto w-full">
         <div className="flex items-center justify-between sm:justify-start gap-3">
             <a href="#home" className={`${title} inline-flex items-center gap-3 sm:gap-4 leading-none`} onClick={handleScroll("home")}>
                 <img src={logo} alt="Logo" className="inline-block w-9 h-9 rounded-md" />
