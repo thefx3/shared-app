@@ -8,6 +8,7 @@
         @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
     }
 }
+
 @layer utilities {
     .text-shadow {
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -38,5 +39,19 @@
     }
     .message-reveal-right {
         animation: message-reveal-right 700ms ease-out both;
+    }
+    .message-opacity-70 {
+        --message-opacity: 0.5;
+    }
+    .message-opacity-75 {
+        --message-opacity: 0.55;
+    }
+    @media (min-width: 640px) {
+        .message-opacity-70 {
+            --message-opacity: 0.7;
+        }
+        .message-opacity-75 {
+            --message-opacity: 0.75;
+        }
     }
 }

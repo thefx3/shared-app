@@ -1,131 +1,129 @@
-import image from '../images/main-image.png'
-import square1 from '../images/square1.png'
-import square2 from '../images/square2.png'
-import square3 from '../images/square3.png'
-import message1 from '../images/message1.png'
-import message2 from '../images/message2.png'
-import message3 from '../images/message3.png'
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import image1 from "../images/images v2/image-1.png";
+import image2 from "../images/images v2/image-2.png";
+import image3 from "../images/images v2/image-3.png";
+import image4 from "../images/images v2/image-4.png";
+import image5 from "../images/images v2/image-5.png";
 
-import { FaApple, FaGooglePlay } from "react-icons/fa";
-
-const sectionClass = "relative isolate w-full flex flex-1 flex-col items-center text-center gap-12 py-16 max-w-7xl mx-auto px-4 scroll-mt-24 overflow-hidden";
-const contentClass = "relative z-10 flex flex-col gap-12 justify-center items-center";
-const storeButtonsClass = "flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6";
-const storeButtonBaseClass = "w-full sm:w-auto min-w-50 inline-flex items-center justify-center gap-3 rounded-2xl px-4 py-2 text-base sm:text-lg font-semibold shadow-lg transition-transform duration-500 hover:-translate-y-0.5 border border-black";
-const storeIconClass = "text-xl sm:text-2xl";
-const storeLabelClass = "flex flex-col leading-tight text-left";
-const storeLabelTopClass = "text-sm sm:text-base font-normal";
-const storeLabelBottomClass = "text-lg sm:text-xl font-bold";
-const mainImageWrapClass = "relative z-0 flex w-full items-center justify-center";
-const mainImageClass = "w-90 max-w-lg sm:max-w-xl h-auto object-contain";
-const floatingLayerClass = "absolute inset-0 z-0";
-const floatingSquareClass = "absolute opacity-75 transition-all duration-500 hover:scale-105 hover:opacity-85";
-const floatingMessageClass = "absolute opacity-75 transition-all duration-400 hover:scale-102 hover:opacity-85";
-
-const storeButtons = [
+const slides = [
     {
-        href: "https://apps.apple.com/fr/app/shared/id6748949959",
-        Icon: FaApple,
-        topLabel: "Télécharger sur",
-        bottomLabel: "l’App Store",
-        className: "bg-black text-white hover:bg-white hover:text-black",
+        image: image1,
+        title: "Au plus pres de tout ce que vous aimez.",
+        description:
+            "Retrouvez vos albums partages dans une interface claire, rapide et simple a parcourir, meme quand vous avez beaucoup de souvenirs a trier.",
+        cta: "Telecharger Shared",
     },
     {
-        href: "#download",
-        Icon: FaGooglePlay,
-        topLabel: "Télécharger sur",
-        bottomLabel: "Google Play",
-        className: "bg-white text-black hover:bg-black hover:text-white",
-    },
-];
-
-const floatingImages = [
-    {
-        src: square1,
-        className: `${floatingSquareClass} left-12 top-28 w-32 opacity-70 sm:left-12 sm:top-130 sm:w-45`,
+        image: image2,
+        title: "Vos grilles restent belles, meme quand elles grandissent.",
+        description:
+            "Chaque espace met en avant vos photos et videos avec une hierarchie nette pour retrouver les meilleurs moments en un coup d'oeil.",
+        cta: "Telecharger Shared",
     },
     {
-        src: message1,
-        className: `${floatingMessageClass} message-reveal-left left-12 top-50 w-32 sm:left-12 sm:top-190 sm:w-100`,
-        delayMs: 100,
-        opacity: 0.7,
+        image: image3,
+        title: "Discutez autour de chaque souvenir.",
+        description:
+            "Les conversations, reactions et partages restent connectes a vos contenus pour garder une experience vivante et vraiment collaborative.",
+        cta: "Telecharger Shared",
     },
-    {
-        src: square2,
-        className: `${floatingSquareClass} top-6 w-40 -translate-x-1/2 opacity-75 sm:top-105 sm:left-230 sm:w-48`,
+        {
+        image: image4,
+        title: "Discutez autour de chaque souvenir.",
+        description:
+            "Les conversations, reactions et partages restent connectes a vos contenus pour garder une experience vivante et vraiment collaborative.",
+        cta: "Telecharger Shared",
     },
-    {
-        src: message2,
-        className: `${floatingMessageClass} message-reveal-right top-6 w-40 -translate-x-1/2 sm:top-170 sm:left-260 sm:w-100`,
-        delayMs: 250,
-        opacity: 0.75,
-    },
-    {
-        src: square3,
-        className: `${floatingSquareClass} right-6 top-32 w-32 opacity-75 sm:right-2 sm:top-36 sm:w-40`,
-    },
-    {
-        src: message3,
-        className: `${floatingMessageClass} message-reveal-left top-6 w-40 -translate-x-1/2 sm:top-220 sm:left-65 sm:w-115`,
-        delayMs: 400,
-        opacity: 0.75,
+        {
+        image: image5,
+        title: "Discutez autour de chaque souvenir.",
+        description:
+            "Les conversations, reactions et partages restent connectes a vos contenus pour garder une experience vivante et vraiment collaborative.",
+        cta: "Telecharger Shared",
     },
 ];
 
 export default function Home() {
+    const [activeSlide, setActiveSlide] = useState(0);
+    const currentSlide = slides[activeSlide];
+
+    useEffect(() => {
+        const intervalId = window.setInterval(() => {
+            setActiveSlide((current) => (current + 1) % slides.length);
+        }, 5000);
+
+        return () => window.clearInterval(intervalId);
+    }, []);
+
     return (
-        <section className={sectionClass}>
-            <div className={contentClass}>
-                <h1 className="text-5xl sm:text-4xl lg:text-6xl font-bold leading-tight text-center">
-                    Tous vos souvenirs partagés,
-                    <br></br> en 1 endroit.
+        <div className="flex w-full flex-col items-center justify-center gap-8 px-4 py-8 md:py-12">
+            <section className="flex w-full max-w-4xl flex-col items-center gap-2">
+                <h1 className="text-center leading-tight">
+                    <p className="text-4xl uppercase tracking-widest font-semibold text-gray-900 md:text-4xl">
+                        Shared
+                    </p>
+                    <br />
+                    <p className="text-xl italic text-gray-600 md:text-2xl">
+                        l’application pour tous vos souvenirs partagés.
+                    </p>
                 </h1>
-                <p className="text-xl sm:text-2xl lg:text-2xl text-gray-800">
-                    Avec Shared, conservez et partagez vos photos et vidéos en toute simplicité.
-                </p>
-            
-                <div className={storeButtonsClass}>
-                    {storeButtons.map(({ href, Icon, topLabel, bottomLabel, className }) => (
-                        <a
-                            key={href}
-                            href={href}
-                            className={`${storeButtonBaseClass} ${className}`}
-                        >
-                            <Icon className={storeIconClass} />
-                            <span className={storeLabelClass}>
-                                <span className={storeLabelTopClass}>{topLabel}</span>
-                                <span className={storeLabelBottomClass}>{bottomLabel}</span>
-                            </span>
-                        </a>
-                    ))}
+            </section>
+
+            <section id="features" className="w-full max-w-6xl rounded-[2rem] px-6 py-8 md:px-10 md:py-10"
+            >
+                <div className="grid items-center gap-6 lg:grid-cols-[minmax(280px,420px)_minmax(0,1fr)] lg:items-stretch lg:gap-10">
+                    <div className="relative flex justify-center">
+                        <img
+                            key={currentSlide.image}
+                            src={currentSlide.image}
+                            alt={currentSlide.title}
+                            className="h-auto w-full max-w-[520px] transition-transform duration-500"
+                        />
+                    </div>
+
+                    <div className="mx-auto flex max-w-xl flex-col items-center text-center lg:h-full lg:items-start lg:text-left">
+                        <div className="mt-4 flex flex-col items-center gap-5 lg:items-start">
+                            <h2 className="text-3xl font-semibold leading-tight text-gray-900 md:text-4xl">
+                                {currentSlide.title}
+                            </h2>
+                            <p className="text-base leading-7 text-gray-600 md:text-lg">
+                                {currentSlide.description}
+                            </p>
+
+                            <div className="flex flex-wrap justify-center gap-3 lg:justify-start mb-6">
+                                <Link
+                                    to="/download"
+                                    className="inline-flex items-center justify-center rounded-full bg-[#2563eb] px-5 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#1d4ed8]"
+                                >
+                                    {currentSlide.cta}
+                                </Link>
+                            </div>
+                        </div>
+
+                        <div className="mt-6 flex items-center justify-center gap-3 self-center lg:mb-10 lg:mt-auto lg:self-start lg:justify-start lg:pt-8">
+                            {slides.map((slide, index) => (
+                                <button
+                                    key={`${slide.image}-${index}`}
+                                    type="button"
+                                    aria-label={`Afficher la slide ${index + 1}`}
+                                    aria-pressed={activeSlide === index}
+                                    onClick={() => setActiveSlide(index)}
+                                    className={`h-3 w-3 rounded-full transition-all duration-200 ${
+                                        activeSlide === index
+                                            ? "scale-110 bg-[#2563eb] shadow-[0_0_0_4px_rgba(37,99,235,0.14)]"
+                                            : "bg-gray-300 hover:bg-gray-400"
+                                    }`}
+                                />
+                            ))}
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div className={mainImageWrapClass}>
-                <img
-                    src={image}
-                    className={mainImageClass}
-                    alt="Aperçu Shared 1"
-                />
-            </div>
-            <div className={floatingLayerClass}>
-                {floatingImages.map(({ src, className, delayMs, opacity }, index) => (
-                    <img
-                        key={`${src}-${index}`}
-                        src={src}
-                        className={className}
-                        style={
-                            delayMs || opacity
-                                ? {
-                                      animationDelay: delayMs ? `${delayMs}ms` : undefined,
-                                      "--message-opacity": opacity ?? undefined,
-                                  }
-                                : undefined
-                        }
-                        alt=""
-                        aria-hidden="true"
-                    />
-                ))}
-            </div>
-        </section>
+            </section>
+
+            <section className="mt-4 flex items-center justify-center gap-4">
+                <p>Reviews</p>
+            </section>
+        </div>
     );
 }
