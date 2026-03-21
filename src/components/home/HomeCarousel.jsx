@@ -9,11 +9,11 @@ const carouselCtaClassName =
 
 function CarouselVisual({ slide, animationClassName }) {
     return (
-        <div className={`${animationClassName} absolute inset-0 flex items-center justify-center`}>
+        <div className={`${animationClassName} absolute inset-0`}>
             <img
                 src={slide.image}
                 alt={slide.title}
-                className="h-full w-full object-contain"
+                className="h-full w-full object-contain object-top"
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
@@ -112,9 +112,9 @@ export default function HomeCarousel({ slides }) {
 
     return (
         <section className="w-full max-w-6xl rounded-[2rem] px-6 py-8 md:px-10 md:py-10">
-            <div className="grid items-center gap-6 lg:grid-cols-[minmax(280px,420px)_minmax(0,1fr)] lg:items-stretch lg:gap-10">
-                <div className="relative flex justify-center">
-                    <div className="relative w-full max-w-[480px] overflow-hidden aspect-[4/5] min-h-[320px] sm:min-h-[420px] lg:min-h-[520px]">
+            <div className="grid items-start gap-6 lg:grid-cols-[minmax(280px,420px)_minmax(0,1fr)] lg:items-stretch lg:gap-10">
+                <div className="relative flex justify-center lg:pt-4">
+                    <div className="relative w-full max-w-[560px] overflow-hidden aspect-[4/5] min-h-[400px] sm:min-h-[540px] lg:min-h-[660px]">
                         {previousSlide !== null && (
                             <CarouselVisual
                                 slide={slides[previousSlide]}
@@ -131,7 +131,7 @@ export default function HomeCarousel({ slides }) {
                 </div>
 
                 <div className="mx-auto flex max-w-xl flex-col items-center text-center lg:h-full lg:items-start lg:text-left">
-                    <div className="relative mt-4 min-h-[250px] w-full">
+                    <div className="relative mt-4 min-h-[280px] w-full sm:min-h-[320px]">
                         {previousSlide !== null && (
                             <CarouselCopy
                                 slide={slides[previousSlide]}
