@@ -5,9 +5,9 @@ import { HEADER_ACTIONS, HEADER_NAV_ITEMS, PAGE_PATHS, SEARCH_NAV_ITEMS } from "
 import logo from "../images/logo.png";
 
 const actionButtonBaseClass =
-    "inline-flex items-center justify-center rounded-full bg-black text-white font-semibold transition-all duration-200 hover:scale-98 hover:shadow-md";
+    "inline-flex items-center justify-center rounded-full bg-[var(--color-contrast)] text-[var(--color-text-inverse)] font-semibold transition-all duration-200 hover:scale-98 hover:shadow-md";
 const mobileMenuItemClass =
-    "w-full justify-start rounded-md px-3 py-2 text-base font-medium text-gray-800 transition-colors duration-200 hover:text-[#4A90E2]";
+    "w-full justify-start rounded-md px-3 py-2 text-base font-medium text-[var(--color-text-heading)] transition-colors duration-200 hover:text-[var(--color-brand)]";
 
 function getActiveNavigationId(location) {
     if (location.pathname === PAGE_PATHS.download) {
@@ -16,6 +16,10 @@ function getActiveNavigationId(location) {
 
     if (location.pathname === PAGE_PATHS.contact) {
         return "contact";
+    }
+
+    if (location.hash === "#features") {
+        return "features";
     }
 
     if (location.hash === "#about") {
@@ -40,16 +44,16 @@ function findSearchMatch(searchTerm) {
 
 function HeaderIconButton({ item, isActive, onSelect }) {
     const activeClassName = item.featured
-        ? "scale-105 bg-black text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)]"
-        : "bg-[#4A90E2]/10 text-[#4A90E2]";
+        ? "scale-105 bg-[var(--color-contrast)] text-[var(--color-text-inverse)] shadow-app-floating"
+        : "bg-[var(--color-brand-soft)] text-[var(--color-brand)]";
     const inactiveClassName = item.featured
-        ? "bg-white text-black hover:bg-black hover:text-white"
-        : "bg-white text-gray-700 hover:text-[#4A90E2]";
+        ? "bg-[var(--color-surface)] text-[var(--color-contrast)] hover:bg-[var(--color-contrast)] hover:text-[var(--color-text-inverse)]"
+        : "bg-[var(--color-surface)] text-[var(--color-text-body)] hover:text-[var(--color-brand)]";
 
     return (
         <button
             type="button"
-            className={`inline-flex h-14 w-14 items-center justify-center rounded-full transition-all duration-200 cursor-pointer ${
+            className={`inline-flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-[var(--color-border)] transition-all duration-200 ${
                 isActive ? activeClassName : inactiveClassName
             }`}
             onClick={() => onSelect(item)}
@@ -65,7 +69,7 @@ function MobileMenuButton({ item, isActive, onSelect }) {
     return (
         <button
             type="button"
-            className={`${mobileMenuItemClass} ${isActive ? "text-[#4A90E2] font-semibold" : ""}`}
+            className={`${mobileMenuItemClass} ${isActive ? "font-semibold text-[var(--color-brand)]" : ""}`}
             onClick={() => onSelect(item)}
         >
             <span className="inline-flex items-center gap-3">
@@ -116,7 +120,7 @@ export default function Header() {
     };
 
     return (
-        <nav className="relative mx-auto flex w-full items-center justify-between gap-3 overflow-x-clip border border-x-0 border-t-0 border-gray-200 px-3 py-2 lg:gap-6 lg:px-4">
+        <nav className="relative mx-auto flex w-full items-center justify-between gap-3 overflow-x-clip border border-x-0 border-t-0 border-[var(--color-border)] px-3 py-2 lg:gap-6 lg:px-4">
             <div className="flex min-w-0 flex-1 items-center gap-2 lg:flex-none lg:items-center lg:gap-3">
                 <button
                     type="button"
@@ -126,9 +130,9 @@ export default function Header() {
                 >
                     <span className="sr-only">Menu</span>
                     <div className="space-y-1.5">
-                        <span className={`block h-0.5 w-6 bg-gray-800 transition-transform duration-200 ${menuOpen ? "translate-y-1.5 rotate-45" : ""}`} />
-                        <span className={`block h-0.5 w-6 bg-gray-800 transition-opacity duration-200 ${menuOpen ? "opacity-0" : "opacity-100"}`} />
-                        <span className={`block h-0.5 w-6 bg-gray-800 transition-transform duration-200 ${menuOpen ? "-translate-y-1.5 -rotate-45" : ""}`} />
+                        <span className={`block h-0.5 w-6 bg-[var(--color-text-heading)] transition-transform duration-200 ${menuOpen ? "translate-y-1.5 rotate-45" : ""}`} />
+                        <span className={`block h-0.5 w-6 bg-[var(--color-text-heading)] transition-opacity duration-200 ${menuOpen ? "opacity-0" : "opacity-100"}`} />
+                        <span className={`block h-0.5 w-6 bg-[var(--color-text-heading)] transition-transform duration-200 ${menuOpen ? "-translate-y-1.5 -rotate-45" : ""}`} />
                     </div>
                 </button>
 
@@ -146,17 +150,17 @@ export default function Header() {
                     </Link>
 
                     <form
-                        className="hidden items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-2 shadow-sm transition-all duration-200 focus-within:border-[#4A90E2] focus-within:ring-2 focus-within:ring-[#4A90E2]/15 xl:flex"
+                        className="hidden items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 shadow-sm transition-all duration-200 focus-within:border-[var(--color-brand)] focus-within:ring-2 focus-within:ring-[var(--color-brand-ring)] xl:flex"
                         onSubmit={handleSearchSubmit}
                         role="search"
                     >
-                        <Search className="h-4 w-4 text-gray-500" aria-hidden="true" />
+                        <Search className="h-4 w-4 text-[var(--color-text-tertiary)]" aria-hidden="true" />
                         <input
                             type="search"
                             value={searchTerm}
                             onChange={(event) => setSearchTerm(event.target.value)}
                             placeholder="Rechercher une section"
-                            className="w-44 bg-transparent text-sm text-gray-700 outline-none placeholder:text-gray-400 lg:w-56"
+                            className="w-44 bg-transparent text-sm text-[var(--color-text-body)] outline-none placeholder:text-[var(--color-text-muted)] lg:w-56"
                             aria-label="Rechercher une section"
                         />
                     </form>
@@ -203,7 +207,7 @@ export default function Header() {
             </div>
 
             <div
-                className={`absolute left-3 right-3 top-full z-20 mt-3 rounded-2xl border border-gray-200 bg-white/95 shadow-lg backdrop-blur transition-all duration-300 lg:hidden ${
+                className={`absolute left-3 right-3 top-full z-20 mt-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-overlay)] shadow-lg backdrop-blur transition-all duration-300 lg:hidden ${
                     menuOpen
                         ? "max-h-96 translate-y-0 opacity-100"
                         : "pointer-events-none max-h-0 -translate-y-2 opacity-0"
@@ -211,17 +215,17 @@ export default function Header() {
             >
                 <div className="flex flex-col items-start gap-2 px-3 py-3">
                     <form
-                        className="flex w-full items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2 shadow-sm transition-all duration-200 focus-within:border-[#4A90E2] focus-within:ring-2 focus-within:ring-[#4A90E2]/15"
+                        className="flex w-full items-center gap-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 shadow-sm transition-all duration-200 focus-within:border-[var(--color-brand)] focus-within:ring-2 focus-within:ring-[var(--color-brand-ring)]"
                         onSubmit={handleSearchSubmit}
                         role="search"
                     >
-                        <Search className="h-4 w-4 text-gray-500" aria-hidden="true" />
+                        <Search className="h-4 w-4 text-[var(--color-text-tertiary)]" aria-hidden="true" />
                         <input
                             type="search"
                             value={searchTerm}
                             onChange={(event) => setSearchTerm(event.target.value)}
                             placeholder="Rechercher..."
-                            className="w-full bg-transparent text-sm text-gray-700 outline-none placeholder:text-gray-400"
+                            className="w-full bg-transparent text-sm text-[var(--color-text-body)] outline-none placeholder:text-[var(--color-text-muted)]"
                             aria-label="Rechercher..."
                         />
                     </form>

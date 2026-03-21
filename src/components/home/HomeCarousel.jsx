@@ -5,7 +5,7 @@ import { PAGE_PATHS } from "../../data/siteContent";
 const AUTOPLAY_DELAY_MS = 5000;
 const TRANSITION_DURATION_MS = 650;
 const carouselCtaClassName =
-    "inline-flex items-center justify-center rounded-full bg-[#2563eb] px-5 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#1d4ed8]";
+    "inline-flex items-center justify-center rounded-full bg-[var(--color-brand-strong)] px-5 py-3 text-sm font-semibold text-[var(--color-text-inverse)] transition-colors duration-200 hover:bg-[var(--color-brand-strong-hover)]";
 
 function CarouselVisual({ slide, animationClassName }) {
     return (
@@ -20,10 +20,10 @@ function CarouselCopy({ slide, animationClassName, overlay = false, inert = fals
 
     return (
         <div className={`${animationClassName} ${positionClassName} flex flex-col items-center gap-5 lg:items-start`}>
-            <h2 className="text-3xl font-semibold leading-tight text-gray-900 md:text-4xl">
+            <h2 className="text-3xl font-semibold leading-tight text-[var(--color-text-primary)] md:text-4xl">
                 {slide.title}
             </h2>
-            <p className="text-base leading-7 text-gray-600 md:text-lg">
+            <p className="text-base leading-7 text-[var(--color-text-secondary)] md:text-lg">
                 {slide.description}
             </p>
 
@@ -133,8 +133,8 @@ export default function HomeCarousel({ slides }) {
                                 onClick={() => transitionToSlide(index)}
                                 className={`h-3 w-3 rounded-full transition-all duration-200 ${
                                     activeSlide === index
-                                        ? "scale-110 bg-[#2563eb] shadow-[0_0_0_4px_rgba(37,99,235,0.14)]"
-                                        : "bg-gray-300 hover:bg-gray-400"
+                                        ? "scale-110 bg-[var(--color-brand-strong)] shadow-app-ring"
+                                        : "bg-[var(--color-dot-inactive)] hover:bg-[var(--color-dot-inactive-hover)]"
                                 }`}
                             />
                         ))}

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { CONTACT_DETAILS } from "../data/siteContent";
 
-const formLabelClassName = "flex flex-col gap-2 text-sm font-medium text-gray-700";
+const formLabelClassName = "flex flex-col gap-2 text-sm font-medium text-[var(--color-text-body)]";
 const fieldClassName =
-    "w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 outline-none transition-colors duration-200";
+    "w-full rounded-xl border border-[var(--color-border)] px-4 py-3 text-[var(--color-text-primary)] outline-none transition-colors duration-200";
 
 function ContactDetailCard({ item }) {
     const Icon = item.icon;
@@ -12,16 +12,16 @@ function ContactDetailCard({ item }) {
     return (
         <Component
             {...(item.href ? { href: item.href } : {})}
-            className="flex items-start gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-4 transition-colors duration-200 hover:bg-gray-100"
+            className="flex items-start gap-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-4 transition-colors duration-200 hover:bg-[var(--color-surface-muted-hover)]"
         >
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-black text-white">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--color-contrast)] text-[var(--color-text-inverse)]">
                 <Icon className="h-5 w-5" />
             </span>
             <span>
-                <span className="block text-sm uppercase tracking-[0.18em] text-gray-500">
+                <span className="block text-sm uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
                     {item.label}
                 </span>
-                <span className="mt-1 block text-base font-medium text-gray-900">
+                <span className="mt-1 block text-base font-medium text-[var(--color-text-primary)]">
                     {item.value}
                 </span>
             </span>
@@ -68,11 +68,11 @@ export default function Contact() {
     return (
         <section className="w-full px-4 py-10 md:px-6 md:py-14">
             <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[minmax(280px,420px)_minmax(0,1fr)]">
-                <div className="rounded-[2rem] border border-gray-200 bg-white p-8 text-gray-900 shadow-[0_24px_70px_rgba(15,23,42,0.08)]">
-                    <span className="inline-flex rounded-full bg-black px-4 py-1 text-sm font-semibold tracking-wide text-white">
+                <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-8 text-[var(--color-text-primary)] shadow-app-panel">
+                    <span className="inline-flex rounded-full bg-[var(--color-contrast)] px-4 py-1 text-sm font-semibold tracking-wide text-[var(--color-text-inverse)]">
                         Contact
                     </span>
-                    <p className="mt-5 text-base leading-7 text-gray-600">
+                    <p className="mt-5 text-base leading-7 text-[var(--color-text-secondary)]">
                         Vous avez une question, une remarque, un problème ou une demande d'amélioration ? N'hesitez pas a me contacter.
                     </p>
 
@@ -83,9 +83,9 @@ export default function Contact() {
                     </div>
                 </div>
 
-                <div className="rounded-[2rem] border border-gray-200 bg-white p-6 shadow-[0_24px_70px_rgba(15,23,42,0.08)] md:p-8">
+                <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-app-panel md:p-8">
                     <div className="mb-8 text-left">
-                        <h3 className="text-3xl font-semibold text-gray-900">Envoyer un message</h3>
+                        <h3 className="text-3xl font-semibold text-[var(--color-text-primary)]">Envoyer un message</h3>
                     </div>
 
                     <form onSubmit={handleSubmit} className="grid gap-5 text-left">
@@ -96,7 +96,7 @@ export default function Contact() {
                                     required
                                     type="text"
                                     name="name"
-                                    className={`${fieldClassName} focus:border-[#5851DB]`}
+                                    className={`${fieldClassName} focus:border-[var(--color-gradient-violet)]`}
                                 />
                             </label>
 
@@ -106,7 +106,7 @@ export default function Contact() {
                                     required
                                     type="email"
                                     name="email"
-                                    className={`${fieldClassName} focus:border-[#5851DB]`}
+                                    className={`${fieldClassName} focus:border-[var(--color-gradient-violet)]`}
                                 />
                             </label>
                         </div>
@@ -117,7 +117,7 @@ export default function Contact() {
                                 type="text"
                                 name="subject"
                                 placeholder="Projet, partenariat, question produit..."
-                                className={`${fieldClassName} focus:border-[#E1306C]`}
+                                className={`${fieldClassName} focus:border-[var(--color-gradient-magenta)]`}
                             />
                         </label>
 
@@ -127,7 +127,7 @@ export default function Contact() {
                                 required
                                 name="message"
                                 rows="7"
-                                className={`${fieldClassName} focus:border-[#FCAF45]`}
+                                className={`${fieldClassName} focus:border-[var(--color-gradient-orange)]`}
                             />
                         </label>
 
@@ -135,7 +135,7 @@ export default function Contact() {
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="inline-flex cursor-pointer items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(15,23,42,0.14)] transition-colors duration-200 hover:bg-black/80 disabled:cursor-not-allowed disabled:opacity-60"
+                                className="inline-flex cursor-pointer items-center justify-center rounded-full bg-[var(--color-contrast)] px-6 py-3 text-sm font-semibold text-[var(--color-text-inverse)] shadow-app-button transition-colors duration-200 hover:bg-[var(--color-contrast-hover)] disabled:cursor-not-allowed disabled:opacity-60"
                             >
                                 {loading ? "Envoi..." : "Envoyer le message"}
                             </button>
@@ -143,7 +143,7 @@ export default function Contact() {
                             {status.message && (
                                 <p
                                     className={`text-sm ${
-                                        status.state === "success" ? "text-emerald-600" : "text-red-500"
+                                        status.state === "success" ? "text-[var(--color-success)]" : "text-[var(--color-error)]"
                                     }`}
                                 >
                                     {status.message}

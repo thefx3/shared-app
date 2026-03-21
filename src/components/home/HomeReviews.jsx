@@ -4,7 +4,7 @@ function ReviewColumn({ reviews, reverse = false }) {
     const trackClassName = reverse ? "review-track review-track--reverse" : "review-track";
 
     return (
-        <div className="relative h-[540px] overflow-hidden rounded-[2rem] bg-white p-3">
+        <div className="relative h-[540px] overflow-hidden rounded-[2rem] bg-[var(--color-surface)] p-3">
             <div className={trackClassName}>
                 {["first", "second"].map((duplicateKey) => (
                     <div
@@ -27,23 +27,23 @@ function ReviewColumn({ reviews, reverse = false }) {
 
 export default function HomeReviews({ reviewColumns }) {
     return (
-        <section className="mt-8 ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] w-screen overflow-hidden bg-white px-6 py-10 text-gray-900 shadow-[0_24px_70px_rgba(15,23,42,0.08)] md:px-10 md:py-14">
+        <section className="mt-8 ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] w-screen overflow-hidden bg-[var(--color-surface)] px-6 py-10 text-[var(--color-text-primary)] shadow-app-panel md:px-10 md:py-14">
             <div className="mx-auto flex w-full max-w-6xl flex-col gap-8">
                 <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
-                    <span className="rounded-full bg-[#2563eb]/10 px-4 py-1 text-sm font-semibold tracking-wide text-[#2563eb]">
+                    <span className="rounded-full bg-[var(--color-brand-soft)] px-4 py-1 text-sm font-semibold tracking-wide text-[var(--color-brand-strong)]">
                         Reviews
                     </span>
                     <h2 className="text-3xl font-semibold leading-tight md:text-4xl">
                         Ce que les utilisateurs pensent de Shared.
                     </h2>
-                    <p className="max-w-2xl text-base leading-7 text-gray-600 md:text-lg">
+                    <p className="max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] md:text-lg">
                         Une dizaine d'avis mock dans deux colonnes animees pour retrouver un rendu plus vivant et plus editorial.
                     </p>
                 </div>
 
                 <div className="relative grid gap-5 sm:grid-cols-2">
-                    <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-16 bg-gradient-to-b from-white via-white/75 to-transparent" />
-                    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-16 bg-gradient-to-t from-white via-white/75 to-transparent" />
+                    <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-16 bg-gradient-to-b from-[var(--color-surface)] via-[var(--color-surface-fade)] to-transparent" />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-16 bg-gradient-to-t from-[var(--color-surface)] via-[var(--color-surface-fade)] to-transparent" />
 
                     {reviewColumns.map((column, columnIndex) => (
                         <ReviewColumn
