@@ -1,4 +1,4 @@
-import { useEffect, useEffectEvent, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { PAGE_PATHS } from "../../data/siteContent";
 
@@ -43,6 +43,7 @@ function CarouselCopy({ slide, animationClassName, overlay = false, inert = fals
 export default function HomeCarousel({ slides }) {
     const [activeSlide, setActiveSlide] = useState(0);
     const [previousSlide, setPreviousSlide] = useState(null);
+    const [transitionKey, setTransitionKey] = useState(0);
     const fadeTimeoutRef = useRef(null);
     const currentSlide = slides[activeSlide];
 
@@ -64,23 +65,28 @@ export default function HomeCarousel({ slides }) {
 
         setPreviousSlide(currentIndex);
         setActiveSlide(nextIndex);
+        setTransitionKey((currentKey) => currentKey + 1);
         scheduleFadeCleanup();
     };
 
-    const autoplayNextSlide = useEffectEvent(() => {
-        transitionToSlide((activeSlide + 1) % slides.length, activeSlide);
-    });
-
     useEffect(() => {
-        const intervalId = window.setInterval(() => {
-            autoplayNextSlide();
+        const autoplayTimeoutId = window.setTimeout(() => {
+            clearFadeTimeout();
+            setPreviousSlide(activeSlide);
+            setActiveSlide((activeSlide + 1) % slides.length);
+            setTransitionKey((currentKey) => currentKey + 1);
+            fadeTimeoutRef.current = window.setTimeout(() => {
+                setPreviousSlide(null);
+            }, TRANSITION_DURATION_MS);
         }, AUTOPLAY_DELAY_MS);
 
-        return () => window.clearInterval(intervalId);
-    }, [slides.length]);
+        return () => window.clearTimeout(autoplayTimeoutId);
+    }, [activeSlide, slides.length]);
 
     useEffect(() => {
-        return () => clearFadeTimeout();
+        return () => {
+            clearFadeTimeout();
+        };
     }, []);
 
     return (
@@ -95,7 +101,10 @@ export default function HomeCarousel({ slides }) {
                             />
                         )}
 
-                        <div key={currentSlide.image} className="relative z-10 flex w-full items-center justify-center">
+                        <div
+                            key={`${currentSlide.image}-${transitionKey}`}
+                            className="relative z-10 flex w-full items-center justify-center"
+                        >
                             <img
                                 src={currentSlide.image}
                                 alt={currentSlide.title}
@@ -117,7 +126,7 @@ export default function HomeCarousel({ slides }) {
                         )}
 
                         <CarouselCopy
-                            key={`${currentSlide.title}-${activeSlide}`}
+                            key={`${currentSlide.title}-${activeSlide}-${transitionKey}`}
                             slide={currentSlide}
                             animationClassName="carousel-fade-enter"
                         />

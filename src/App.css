@@ -93,43 +93,6 @@
         );
     }
 
-    @keyframes message-reveal-left {
-        0% {
-            opacity: 0;
-            transform: translateX(-20px) scale(0.98);
-        }
-        100% {
-            opacity: var(--message-opacity, 1);
-            transform: translateX(0) scale(1);
-        }
-    }
-
-    .message-reveal-left {
-        animation: message-reveal-left 700ms ease-out both;
-    }
-
-    @keyframes message-reveal-right {
-        0% {
-            opacity: 0;
-            transform: translateX(20px) scale(0.98);
-        }
-        100% {
-            opacity: var(--message-opacity, 1);
-            transform: translateX(0) scale(1);
-        }
-    }
-
-    .message-reveal-right {
-        animation: message-reveal-right 700ms ease-out both;
-    }
-
-    .message-opacity-70 {
-        --message-opacity: 0.5;
-    }
-
-    .message-opacity-75 {
-        --message-opacity: 0.55;
-    }
 
     @keyframes carousel-fade-in {
         0% {
