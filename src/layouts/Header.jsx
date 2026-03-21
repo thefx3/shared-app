@@ -176,9 +176,6 @@ export default function Header() {
                 }`}
             >
                 <div className="flex flex-col items-start gap-2 px-3 py-3">
-                    <p className="text-2xl font-bold uppercase tracking-widest text-[var(--color-text-primary)] md:text-2xl">
-                        {t("common.brand.name")}
-                    </p>
 
                     {headerNavItems.map((item) => (
                         <MobileMenuButton
