@@ -10,7 +10,14 @@ const carouselCtaClassName =
 function CarouselVisual({ slide, animationClassName }) {
     return (
         <div className={`${animationClassName} absolute inset-0 flex items-center justify-center`}>
-            <img src={slide.image} alt={slide.title} className="h-auto w-full" />
+            <img
+                src={slide.image}
+                alt={slide.title}
+                className="h-full w-full object-contain"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+            />
         </div>
     );
 }
@@ -70,6 +77,20 @@ export default function HomeCarousel({ slides }) {
     };
 
     useEffect(() => {
+        const preloaders = slides.map((slide) => {
+            const image = new window.Image();
+            image.src = slide.image;
+            return image;
+        });
+
+        return () => {
+            preloaders.forEach((image) => {
+                image.src = "";
+            });
+        };
+    }, [slides]);
+
+    useEffect(() => {
         const autoplayTimeoutId = window.setTimeout(() => {
             clearFadeTimeout();
             setPreviousSlide(activeSlide);
@@ -93,7 +114,7 @@ export default function HomeCarousel({ slides }) {
         <section className="w-full max-w-6xl rounded-[2rem] px-6 py-8 md:px-10 md:py-10">
             <div className="grid items-center gap-6 lg:grid-cols-[minmax(280px,420px)_minmax(0,1fr)] lg:items-stretch lg:gap-10">
                 <div className="relative flex justify-center">
-                    <div className="relative flex w-full max-w-[480px] items-center justify-center overflow-hidden">
+                    <div className="relative w-full max-w-[480px] overflow-hidden aspect-[4/5] min-h-[320px] sm:min-h-[420px] lg:min-h-[520px]">
                         {previousSlide !== null && (
                             <CarouselVisual
                                 slide={slides[previousSlide]}
@@ -101,16 +122,11 @@ export default function HomeCarousel({ slides }) {
                             />
                         )}
 
-                        <div
+                        <CarouselVisual
                             key={`${currentSlide.image}-${transitionKey}`}
-                            className="relative z-10 flex w-full items-center justify-center"
-                        >
-                            <img
-                                src={currentSlide.image}
-                                alt={currentSlide.title}
-                                className="carousel-fade-enter h-auto w-full"
-                            />
-                        </div>
+                            slide={currentSlide}
+                            animationClassName="carousel-fade-enter relative z-10"
+                        />
                     </div>
                 </div>
 
