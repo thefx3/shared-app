@@ -14,16 +14,16 @@ function ContactDetailCard({ item }) {
     return (
         <Component
             {...(item.href ? { href: item.href } : {})}
-            className="flex items-start gap-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-4 transition-colors duration-200 hover:bg-[var(--color-surface-muted-hover)]"
+            className="flex min-w-0 items-start gap-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-4 transition-colors duration-200 hover:bg-[var(--color-surface-muted-hover)] sm:gap-4"
         >
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--color-contrast)] text-[var(--color-text-inverse)]">
                 <Icon className="h-5 w-5" />
             </span>
-            <span>
+            <span className="min-w-0">
                 <span className="block text-sm uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
                     {item.label}
                 </span>
-                <span className="mt-1 block text-base font-medium text-[var(--color-text-primary)]">
+                <span className="mt-1 block break-words text-base font-medium text-[var(--color-text-primary)]">
                     {item.value}
                 </span>
             </span>
@@ -70,9 +70,9 @@ export default function Contact() {
     };
 
     return (
-        <section className="w-full px-4 py-10 md:px-6 md:py-14">
+        <section className="w-full px-3 py-8 sm:px-4 md:px-6 md:py-14">
             <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[minmax(280px,420px)_minmax(0,1fr)]">
-                <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-8 text-[var(--color-text-primary)] shadow-app-panel">
+                <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-5 text-[var(--color-text-primary)] shadow-app-panel sm:p-6 lg:p-8">
                     <span className="inline-flex rounded-full bg-[var(--color-contrast)] px-4 py-1 text-sm font-semibold tracking-wide text-[var(--color-text-inverse)]">
                         {t("contact.badge")}
                     </span>
@@ -87,9 +87,9 @@ export default function Contact() {
                     </div>
                 </div>
 
-                <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-app-panel md:p-8">
-                    <div className="mb-8 text-left">
-                        <h3 className="text-3xl font-semibold text-[var(--color-text-primary)]">{t("contact.formTitle")}</h3>
+                <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-app-panel sm:p-6 md:p-8">
+                    <div className="mb-6 text-left sm:mb-8">
+                        <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] sm:text-3xl">{t("contact.formTitle")}</h3>
                     </div>
 
                     <form onSubmit={handleSubmit} className="grid gap-5 text-left">
@@ -139,14 +139,14 @@ export default function Contact() {
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="inline-flex cursor-pointer items-center justify-center rounded-full bg-[var(--color-contrast)] px-6 py-3 text-sm font-semibold text-[var(--color-text-inverse)] shadow-app-button transition-colors duration-200 hover:bg-[var(--color-contrast-hover)] disabled:cursor-not-allowed disabled:opacity-60"
+                                className="inline-flex w-full cursor-pointer items-center justify-center rounded-full bg-[var(--color-contrast)] px-6 py-3 text-sm font-semibold text-[var(--color-text-inverse)] shadow-app-button transition-colors duration-200 hover:bg-[var(--color-contrast-hover)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                             >
                                 {loading ? t("common.actions.sending") : t("common.actions.sendMessage")}
                             </button>
 
                             {status.message && (
                                 <p
-                                    className={`text-sm ${
+                                    className={`max-w-full break-words text-sm sm:max-w-[22rem] ${
                                         status.state === "success" ? "text-[var(--color-success)]" : "text-[var(--color-error)]"
                                     }`}
                                 >
