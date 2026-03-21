@@ -5,7 +5,7 @@ import { HEADER_ACTIONS, HEADER_NAV_ITEMS, PAGE_PATHS, SEARCH_NAV_ITEMS } from "
 import logo from "../images/logo.png";
 
 const actionButtonBaseClass =
-    "inline-flex items-center justify-center rounded-full bg-[var(--color-contrast)] text-[var(--color-text-inverse)] font-semibold transition-all duration-200 hover:scale-98 hover:shadow-md";
+    "inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[var(--color-contrast)] text-[var(--color-text-inverse)] font-semibold transition-all duration-200 hover:scale-98 hover:shadow-md";
 const mobileMenuItemClass =
     "w-full justify-start rounded-md px-3 py-2 text-base font-medium text-[var(--color-text-heading)] transition-colors duration-200 hover:text-[var(--color-brand)]";
 
@@ -193,13 +193,13 @@ export default function Header() {
                 ))}
             </div>
 
-            <div className="flex shrink-0 items-center gap-1.5 lg:hidden">
+            <div className="flex shrink-0 items-center gap-1 lg:hidden">
                 {HEADER_ACTIONS.map((action) => (
                     <Link
                         key={action.id}
                         to={action.href}
                         onClick={closeMenu}
-                        className={`h-9 px-3 py-2 text-[14px] ${actionButtonBaseClass}`}
+                        className={`h-9 px-2.5 py-2 text-[12px] sm:px-3 sm:text-[14px] ${actionButtonBaseClass}`}
                     >
                         {action.label}
                     </Link>

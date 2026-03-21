@@ -2,16 +2,16 @@ import { createElement } from "react";
 import image from "../images/main-image.png";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 
-const sectionClass = "relative isolate mx-auto flex w-full max-w-7xl flex-1 flex-col items-center gap-10 overflow-hidden px-4 py-8 text-center scroll-mt-24";
-const contentClass = "relative z-15 flex flex-col items-center justify-center gap-12";
+const sectionClass = "relative isolate mx-auto flex w-full max-w-7xl flex-1 flex-col items-center gap-8 overflow-hidden px-4 py-8 text-center scroll-mt-24 md:gap-10";
+const contentClass = "relative z-10 flex flex-col items-center justify-center gap-8 md:gap-12";
 const storeButtonsClass = "flex flex-wrap justify-center gap-4 md:gap-6 lg:justify-start";
-const storeButtonBaseClass = "inline-flex min-w-50 w-full items-center justify-center gap-3 rounded-2xl border border-[var(--color-contrast)] px-4 py-2 text-base font-semibold shadow-lg transition-transform duration-500 hover:-translate-y-0.5 md:w-auto md:text-lg";
+const storeButtonBaseClass = "inline-flex w-full max-w-[20rem] items-center justify-center gap-3 rounded-2xl border border-[var(--color-contrast)] px-4 py-2 text-base font-semibold shadow-lg transition-transform duration-500 hover:-translate-y-0.5 sm:max-w-none md:w-auto md:min-w-[18rem] md:text-lg";
 const storeIconClass = "text-xl md:text-2xl";
 const storeLabelClass = "flex flex-col text-left leading-tight";
-const storeLabelTopClass = "text-md font-normal md:text-base";
+const storeLabelTopClass = "text-sm font-normal md:text-base";
 const storeLabelBottomClass = "text-lg font-bold md:text-xl";
 const mainImageWrapClass = "relative z-10 flex w-full items-center justify-center";
-const mainImageClass = "h-auto w-90 max-w-lg object-contain md:max-w-xl";
+const mainImageClass = "h-auto w-full max-w-[22.5rem] object-contain md:max-w-xl";
 
 const storeButtons = [
     {

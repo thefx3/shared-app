@@ -47,6 +47,7 @@
 @layer base {
     body {
         color: var(--color-contrast);
+        overflow-x: clip;
     }
 }
 
@@ -176,6 +177,12 @@
 
     .review-track--reverse {
         animation-direction: reverse;
+    }
+
+    @media (min-width: 640px) {
+        .review-track--desktop-reverse {
+            animation-direction: reverse;
+        }
     }
 
     @media (min-width: 640px) {

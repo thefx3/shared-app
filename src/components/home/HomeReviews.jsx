@@ -1,10 +1,10 @@
 import ReviewCard from "./ReviewCard";
 
 function ReviewColumn({ reviews, reverse = false }) {
-    const trackClassName = reverse ? "review-track review-track--reverse" : "review-track";
+    const trackClassName = reverse ? "review-track review-track--desktop-reverse" : "review-track";
 
     return (
-        <div className="relative h-[540px] overflow-hidden rounded-[2rem] bg-[var(--color-surface)] p-3">
+        <div className="relative h-[460px] overflow-hidden rounded-[2rem] bg-[var(--color-surface)] p-3 sm:h-[540px]">
             <div className={trackClassName}>
                 {["first", "second"].map((duplicateKey) => (
                     <div
@@ -27,7 +27,7 @@ function ReviewColumn({ reviews, reverse = false }) {
 
 export default function HomeReviews({ reviewColumns }) {
     return (
-        <section className="mt-8 ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] w-screen overflow-hidden bg-[var(--color-surface)] px-6 py-10 text-[var(--color-text-primary)] shadow-app-panel md:px-10 md:py-14">
+        <section className="mt-8 ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] w-screen overflow-hidden bg-[var(--color-surface)] px-4 py-10 text-[var(--color-text-primary)] shadow-app-panel sm:px-6 md:px-10 md:py-14">
             <div className="mx-auto flex w-full max-w-6xl flex-col gap-8">
                 <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
                     <span className="rounded-full bg-[var(--color-brand-soft)] px-4 py-1 text-sm font-semibold tracking-wide text-[var(--color-brand-strong)]">
