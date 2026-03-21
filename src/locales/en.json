@@ -1,0 +1,170 @@
+{
+  "common": {
+    "brand": {
+      "name": "Shared",
+      "logoAlt": "Shared logo"
+    },
+    "actions": {
+      "download": "Download",
+      "downloadShort": "DL",
+      "downloadShared": "Download Shared",
+      "contact": "Contact",
+      "sendMessage": "Send message",
+      "sending": "Sending..."
+    },
+    "legal": {
+      "privacy": "Privacy",
+      "terms": "Terms"
+    }
+  },
+  "header": {
+    "menu": {
+      "open": "Open menu",
+      "title": "Menu"
+    },
+    "nav": {
+      "home": "Home",
+      "camera": "Camera",
+      "contact": "Contact"
+    }
+  },
+  "footer": {
+    "description": "The app for finding, organizing, and sharing your memories in a clear, modern, and collaborative interface.",
+    "sections": {
+      "product": "Product",
+      "company": "Company",
+      "resources": "Resources"
+    },
+    "links": {
+      "features": "Features",
+      "otherApps": "Orion Tech",
+      "faq": "FAQ"
+    },
+    "copyright": "Copyright 2026 - Shared"
+  },
+  "home": {
+    "carousel": {
+      "slides": {
+        "sharedSpace": {
+          "title": "Your Shared Space",
+          "description": "Keep your important moments close, organize your content, and access your memories from a single app that feels clear, calm, and fast."
+        },
+        "feed": {
+          "title": "Your Feed",
+          "description": "Post your photos, videos, and updates in a space that stays easy to browse so you can stay connected without friction."
+        },
+        "privateChats": {
+          "title": "Your Private Conversations",
+          "description": "Chat easily with friends or family, react to moments, share media, and keep the connection alive in a more personal space."
+        },
+        "captureMoment": {
+          "title": "Capture the Moment",
+          "description": "Share instantly with your friends, send your best shots, and keep a stream of memories alive every day."
+        },
+        "memories": {
+          "title": "Your Memories",
+          "description": "Bring everything you want to keep into one place, find your favorite content quickly, and let your shared albums grow over time."
+        }
+      }
+    },
+    "reviews": {
+      "badge": "Reviews",
+      "title": "What users think about Shared.",
+      "items": {
+        "camille": {
+          "name": "Camille M.",
+          "role": "Design student",
+          "quote": "Shared helps me find my friends' photos and videos quickly without digging everywhere. The app feels clean and genuinely pleasant to use."
+        },
+        "lucas": {
+          "name": "Lucas G.",
+          "role": "Mobile developer",
+          "quote": "I like how simple and direct it feels. I share a moment, everyone finds it right away, and the experience stays fluid every day."
+        },
+        "sarah": {
+          "name": "Sarah E.",
+          "role": "Project manager",
+          "quote": "We use it to keep a trace of our weekends with friends. Everything is well presented and I can always find the content that matters."
+        },
+        "nicolas": {
+          "name": "Nicolas R.",
+          "role": "Freelance photographer",
+          "quote": "I needed a simpler space to share memories and talk around my images. Shared does that job really well."
+        },
+        "julie": {
+          "name": "Julie C.",
+          "role": "Marketing manager",
+          "quote": "The interface focuses on what matters, and that is exactly what I was looking for. I can post, browse, and share without getting lost."
+        },
+        "antoine": {
+          "name": "Antoine V.",
+          "role": "Consultant",
+          "quote": "The app makes me want to come back to it. Everything feels more personal, easier to read, and the shared moments carry more meaning."
+        },
+        "lea": {
+          "name": "Léa R.",
+          "role": "Illustrator",
+          "quote": "I love being able to keep my creative memories and the ones from people close to me in one place. It feels simple, clean, and reassuring."
+        },
+        "thomas": {
+          "name": "Thomas D.",
+          "role": "Student",
+          "quote": "I mostly use Shared after parties and trips. We find everything fast and the conversations stay attached to the right moments."
+        },
+        "ines": {
+          "name": "Inès P.",
+          "role": "Community manager",
+          "quote": "The app feels intuitive from the very first launch. I really like the way the content is highlighted."
+        },
+        "mathieu": {
+          "name": "Mathieu R.",
+          "role": "Product engineer",
+          "quote": "I use Shared to keep a more personal space with the people close to me. The product feels polished, fast, and enjoyable to browse."
+        }
+      }
+    }
+  },
+  "download": {
+    "titleLine1": "All your shared memories,",
+    "titleLine2": "in one place.",
+    "stores": {
+      "downloadOn": "Download on",
+      "appStore": "the App Store",
+      "googlePlay": "Google Play"
+    },
+    "previewAlt": "Shared preview 1"
+  },
+  "contact": {
+    "badge": "Contact",
+    "intro": "Do you have a question, feedback, a bug report, or an improvement request? Feel free to get in touch.",
+    "formTitle": "Send a message",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "subjectPlaceholder": "Project, partnership, product question..."
+    },
+    "status": {
+      "success": "Thanks, your message was sent successfully.",
+      "genericError": "Something went wrong. Please try again.",
+      "networkError": "Unable to send your message right now."
+    },
+    "details": {
+      "email": {
+        "label": "Email"
+      },
+      "location": {
+        "label": "Location",
+        "value": "France"
+      },
+      "response": {
+        "label": "Response time",
+        "value": "Within 24 to 48 hours"
+      }
+    }
+  },
+  "notFound": {
+    "title": "Page not found"
+  }
+}

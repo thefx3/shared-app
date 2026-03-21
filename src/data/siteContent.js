@@ -1,4 +1,4 @@
-import { Camera, Grid2x2, House, Info, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Camera, House, Mail, MapPin, MessageCircle } from "lucide-react";
 
 export const PAGE_PATHS = {
     home: "/",
@@ -6,77 +6,81 @@ export const PAGE_PATHS = {
     contact: "/contact",
 };
 
-export const HEADER_NAV_ITEMS = [
-    {
-        id: "home",
-        label: "Accueil",
-        Icon: House,
-        href: PAGE_PATHS.home,
-        match: PAGE_PATHS.home,
-    },
-    {
-        id: "download",
-        label: "Camera",
-        Icon: Camera,
-        href: PAGE_PATHS.download,
-        match: PAGE_PATHS.download,
-        featured: true,
-    },
-    {
-        id: "contact",
-        label: "Contact",
-        Icon: Mail,
-        href: PAGE_PATHS.contact,
-        match: PAGE_PATHS.contact,
-    },
-];
+export function getHeaderNavItems(t) {
+    return [
+        {
+            id: "home",
+            label: t("header.nav.home"),
+            Icon: House,
+            href: PAGE_PATHS.home,
+        },
+        {
+            id: "download",
+            label: t("header.nav.camera"),
+            Icon: Camera,
+            href: PAGE_PATHS.download,
+            featured: true,
+        },
+        {
+            id: "contact",
+            label: t("header.nav.contact"),
+            Icon: Mail,
+            href: PAGE_PATHS.contact,
+        },
+    ];
+}
 
-export const HEADER_ACTIONS = [
-    { id: "download", label: "Télécharger", href: PAGE_PATHS.download },
-];
+export function getHeaderActions(t) {
+    return [
+        {
+            id: "download",
+            label: t("common.actions.download"),
+            shortLabel: t("common.actions.downloadShort"),
+            href: PAGE_PATHS.download,
+        },
+    ];
+}
 
-export const SEARCH_NAV_ITEMS = [
-    { id: "shared", label: "Shared", href: PAGE_PATHS.home },
-    ...HEADER_NAV_ITEMS.map(({ id, label, href }) => ({ id, label, href })),
-    ...HEADER_ACTIONS.map(({ id, label, href }) => ({ id, label, href })),
-];
+export function getFooterSections(t) {
+    return [
+        {
+            title: t("footer.sections.product"),
+            links: [
+                { label: t("footer.links.features"), href: "/#home" },
+                { label: t("common.actions.download"), href: PAGE_PATHS.download },
+            ],
+        },
+        {
+            title: t("footer.sections.company"),
+            links: [{ label: t("footer.links.otherApps"), href: "/#oriontech" }],
+        },
+        {
+            title: t("footer.sections.resources"),
+            links: [
+                { label: t("footer.links.faq"), href: "/#faq" },
+                { label: t("header.nav.contact"), href: PAGE_PATHS.contact },
+            ],
+        },
+    ];
+}
 
-export const FOOTER_SECTIONS = [
-    {
-        title: "Produit",
-        links: [
-            { label: "Fonctionnalités", href: "/#home" },
-            { label: "Télécharger", href: PAGE_PATHS.download },
-        ],
-    },
-    {
-        title: "Orion Tech",
-        links: [{ label: "Autres apps", href: "/#oriontech" }],
-    },
-    {
-        title: "Ressources",
-        links: [
-            { label: "FAQ", href: "/#faq" },
-            { label: "Contact", href: PAGE_PATHS.contact },
-        ],
-    },
-];
-
-export const CONTACT_DETAILS = [
-    {
-        icon: Mail,
-        label: "Email",
-        value: "sharedapp.contact@gmail.com",
-        href: "mailto:sharedapp.contact@gmail.com",
-    },
-    {
-        icon: MapPin,
-        label: "Localisation",
-        value: "Paris, France",
-    },
-    {
-        icon: MessageCircle,
-        label: "Réponse",
-        value: "Sous 24 a 48 heures",
-    },
-];
+export function getContactDetails(t) {
+    return [
+        {
+            icon: Mail,
+            label: t("contact.details.email.label"),
+            value: "sharedapp.contact@gmail.com",
+            href: "mailto:sharedapp.contact@gmail.com",
+        },
+        {
+            icon: MapPin,
+            label: t("contact.details.location.label"),
+            value: t("contact.details.location.value"),
+        },
+        {
+            icon: MessageCircle,
+            label: t("contact.details.response.label"),
+            value: t("contact.details.response.value"),
+        },
+    ];
+}

@@ -1,0 +1,170 @@
+{
+  "common": {
+    "brand": {
+      "name": "Shared",
+      "logoAlt": "Logo Shared"
+    },
+    "actions": {
+      "download": "Télécharger",
+      "downloadShort": "DL",
+      "downloadShared": "Télécharger Shared",
+      "contact": "Contact",
+      "sendMessage": "Envoyer le message",
+      "sending": "Envoi..."
+    },
+    "legal": {
+      "privacy": "Confidentialité",
+      "terms": "Conditions"
+    }
+  },
+  "header": {
+    "menu": {
+      "open": "Ouvrir le menu",
+      "title": "Menu"
+    },
+    "nav": {
+      "home": "Accueil",
+      "camera": "Caméra",
+      "contact": "Contact"
+    }
+  },
+  "footer": {
+    "description": "L'application pour retrouver, organiser et partager vos souvenirs dans une interface claire, moderne et collaborative.",
+    "sections": {
+      "product": "Produit",
+      "company": "Entreprise",
+      "resources": "Ressources"
+    },
+    "links": {
+      "features": "Fonctionnalités",
+      "otherApps": "Orion Tech",
+      "faq": "FAQ"
+    },
+    "copyright": "Copyright 2026 - Shared"
+  },
+  "home": {
+    "carousel": {
+      "slides": {
+        "sharedSpace": {
+          "title": "Votre espace partagé",
+          "description": "Retrouvez vos moments importants, organisez vos contenus et gardez vos souvenirs à portée de main dans une seule application claire et fluide."
+        },
+        "feed": {
+          "title": "Votre actualité",
+          "description": "Publiez vos photos, vidéos et messages dans un espace simple à consulter pour rester connecté aux personnes qui comptent, sans friction."
+        },
+        "privateChats": {
+          "title": "Vos conversations privées",
+          "description": "Discutez en toute simplicité avec vos amis ou votre famille, partagez des réactions, des médias et gardez le lien dans un cadre rassurant."
+        },
+        "captureMoment": {
+          "title": "Capture l'instant présent",
+          "description": "Partagez instantanément avec tes amis, envoyez vos plus belles prises et gardez un fil de souvenirs vivant au quotidien."
+        },
+        "memories": {
+          "title": "Vos souvenirs ",
+          "description": "Centralisez ce que vous aimez conserver, retrouvez facilement vos contenus préférés et faites vivre vos albums partagés dans le temps."
+        }
+      }
+    },
+    "reviews": {
+      "badge": "Reviews",
+      "title": "Ce que les utilisateurs pensent de Shared.",
+      "items": {
+        "camille": {
+          "name": "Camille M.",
+          "role": "Étudiante en design",
+          "quote": "Shared me permet de retrouver rapidement les photos et vidéos de mes amis sans devoir fouiller partout. L'application est claire et agréable à utiliser."
+        },
+        "lucas": {
+          "name": "Lucas G.",
+          "role": "Développeur mobile",
+          "quote": "J'aime le côté simple et direct. Je partage un moment, tout le monde le retrouve, et l'expérience reste vraiment fluide au quotidien."
+        },
+        "sarah": {
+          "name": "Sarah E.",
+          "role": "Cheffe de projet",
+          "quote": "On s'en sert pour garder une trace de nos week-ends entre amis. Tout est bien présenté et je retrouve facilement les contenus importants."
+        },
+        "nicolas": {
+          "name": "Nicolas R.",
+          "role": "Photographe indépendant",
+          "quote": "J'avais besoin d'un espace plus simple pour partager des souvenirs et discuter autour de mes images. Shared remplit très bien ce rôle."
+        },
+        "julie": {
+          "name": "Julie C.",
+          "role": "Responsable marketing",
+          "quote": "L'interface va à l'essentiel, et c'est exactement ce que je cherchais. Je peux poster, revoir et partager mes contenus sans me perdre."
+        },
+        "antoine": {
+          "name": "Antoine V.",
+          "role": "Consultant",
+          "quote": "L'application donne envie d'y revenir. Tout est plus intime, plus lisible, et les moments partagés ont vraiment plus de valeur."
+        },
+        "lea": {
+          "name": "Léa R.",
+          "role": "Illustratrice",
+          "quote": "J'adore pouvoir conserver mes souvenirs créatifs et ceux de mes proches dans un seul endroit. C'est simple, propre et rassurant."
+        },
+        "thomas": {
+          "name": "Thomas D.",
+          "role": "Étudiant",
+          "quote": "Shared me sert surtout après les soirées et les voyages. On retrouve tout rapidement et les conversations restent liées aux bons moments."
+        },
+        "ines": {
+          "name": "Inès P.",
+          "role": "Community manager",
+          "quote": "L'application est intuitive dès la première ouverture. J'apprécie vraiment la manière dont les contenus sont mis en avant."
+        },
+        "mathieu": {
+          "name": "Mathieu R.",
+          "role": "Ingénieur produit",
+          "quote": "J'utilise Shared pour garder un espace plus personnel avec mes proches. Le produit est sobre, rapide et agréable à parcourir."
+        }
+      }
+    }
+  },
+  "download": {
+    "titleLine1": "Tous vos souvenirs partagés,",
+    "titleLine2": "en 1 endroit.",
+    "stores": {
+      "downloadOn": "Télécharger sur",
+      "appStore": "l’App Store",
+      "googlePlay": "Google Play"
+    },
+    "previewAlt": "Aperçu Shared 1"
+  },
+  "contact": {
+    "badge": "Contact",
+    "intro": "Vous avez une question, une remarque, un problème ou une demande d'amélioration ? N'hésitez pas à me contacter.",
+    "formTitle": "Envoyer un message",
+    "fields": {
+      "name": "Nom",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "subjectPlaceholder": "Projet, partenariat, question produit..."
+    },
+    "status": {
+      "success": "Merci, votre message a bien été envoyé.",
+      "genericError": "Une erreur est survenue. Merci de réessayer.",
+      "networkError": "Impossible d'envoyer le message pour le moment."
+    },
+    "details": {
+      "email": {
+        "label": "Email"
+      },
+      "location": {
+        "label": "Localisation",
+        "value": "France"
+      },
+      "response": {
+        "label": "Réponse",
+        "value": "Sous 24 à 48 heures"
+      }
+    }
+  },
+  "notFound": {
+    "title": "Page introuvable"
+  }
+}

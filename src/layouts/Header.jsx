@@ -1,7 +1,7 @@
-import { Search } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { HEADER_ACTIONS, HEADER_NAV_ITEMS, PAGE_PATHS, SEARCH_NAV_ITEMS } from "../data/siteContent";
+import { getHeaderActions, getHeaderNavItems, PAGE_PATHS } from "../data/siteContent";
 import logo from "../images/logo.png";
 
 const actionButtonBaseClass =
@@ -71,35 +71,25 @@ function MobileActionLabel({ action }) {
     return (
         <>
             <span className="hidden min-[361px]:inline">{action.label}</span>
-            <span className="inline min-[361px]:hidden">
-                {action.id === "download" ? "DL" : "Contact"}
-            </span>
+            <span className="inline min-[361px]:hidden">{action.shortLabel || action.label}</span>
         </>
     );
 }
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const { t } = useTranslation();
     const location = useLocation();
     const navigate = useNavigate();
     const activeId = getActiveNavigationId(location);
+    const headerNavItems = getHeaderNavItems(t);
+    const headerActions = getHeaderActions(t);
 
     const closeMenu = () => {
         setMenuOpen(false);
     };
 
     const openNavigationItem = (item) => {
-        if (item.href.includes("#")) {
-            if (location.pathname === PAGE_PATHS.home) {
-                const hash = item.href.split("#")[1];
-                window.location.hash = hash ? `#${hash}` : "";
-            } else {
-                window.location.assign(item.href);
-            }
-            closeMenu();
-            return;
-        }
-
         navigate(item.href);
         closeMenu();
     };
@@ -110,10 +100,10 @@ export default function Header() {
                 <button
                     type="button"
                     className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors duration-200 hover:scale-95 lg:hidden"
-                    aria-label="Ouvrir le menu"
+                    aria-label={t("header.menu.open")}
                     onClick={() => setMenuOpen((previous) => !previous)}
                 >
-                    <span className="sr-only">Menu</span>
+                    <span className="sr-only">{t("header.menu.title")}</span>
                     <div className="space-y-1.5">
                         <span className={`block h-0.5 w-6 bg-[var(--color-text-heading)] transition-transform duration-200 ${menuOpen ? "translate-y-1.5 rotate-45" : ""}`} />
                         <span className={`block h-0.5 w-6 bg-[var(--color-text-heading)] transition-opacity duration-200 ${menuOpen ? "opacity-0" : "opacity-100"}`} />
@@ -129,19 +119,19 @@ export default function Header() {
                     >
                         <img
                             src={logo}
-                            alt="Logo Shared"
+                            alt={t("common.brand.logoAlt")}
                             className="block h-10 w-auto max-w-16 shrink-0 rounded-lg object-contain lg:h-10 lg:max-w-none"
                         />
                     </Link>
                     <p className="text-2xl font-bold uppercase tracking-widest text-[var(--color-text-primary)] md:text-2xl">
-                        Shared
+                        {t("common.brand.name")}
                     </p>
                 </div>
             </div>
 
             <div className="hidden w-full lg:flex lg:w-auto lg:flex-nowrap lg:flex-row lg:justify-start lg:gap-5">
                 <div className="flex w-full flex-col items-center justify-center gap-2 lg:w-auto lg:flex-row lg:flex-nowrap lg:justify-end lg:gap-4">
-                    {HEADER_NAV_ITEMS.map((item) => (
+                    {headerNavItems.map((item) => (
                         <HeaderIconButton
                             key={item.id}
                             item={item}
@@ -153,7 +143,7 @@ export default function Header() {
             </div>
 
             <div className="hidden gap-2 lg:flex lg:gap-3">
-                {HEADER_ACTIONS.map((action) => (
+                {headerActions.map((action) => (
                     <Link
                         key={action.id}
                         to={action.href}
@@ -166,7 +156,7 @@ export default function Header() {
             </div>
 
             <div className="flex shrink-0 items-center gap-1 lg:hidden">
-                {HEADER_ACTIONS.map((action) => (
+                {headerActions.map((action) => (
                     <Link
                         key={action.id}
                         to={action.href}
@@ -187,10 +177,10 @@ export default function Header() {
             >
                 <div className="flex flex-col items-start gap-2 px-3 py-3">
                     <p className="text-2xl font-bold uppercase tracking-widest text-[var(--color-text-primary)] md:text-2xl">
-                        Shared
+                        {t("common.brand.name")}
                     </p>
 
-                    {HEADER_NAV_ITEMS.map((item) => (
+                    {headerNavItems.map((item) => (
                         <MobileMenuButton
                             key={item.id}
                             item={item}

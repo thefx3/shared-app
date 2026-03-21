@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import ReviewCard from "./ReviewCard";
 
 function ReviewColumn({ reviews, reverse = false }) {
@@ -26,15 +27,17 @@ function ReviewColumn({ reviews, reverse = false }) {
 }
 
 export default function HomeReviews({ reviewColumns }) {
+    const { t } = useTranslation();
+
     return (
         <section className="relative mt-8 w-full overflow-hidden bg-[var(--color-surface)] px-4 py-10 text-[var(--color-text-primary)] shadow-app-panel sm:px-6 md:mx-[calc(50%-50vw)] md:px-10 md:py-14">
             <div className="mx-auto flex w-full max-w-6xl min-w-0 flex-col gap-8">
                 <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
                     <span className="rounded-full bg-[var(--color-brand-soft)] px-4 py-1 text-sm font-semibold tracking-wide text-[var(--color-brand-strong)]">
-                        Reviews
+                        {t("home.reviews.badge")}
                     </span>
                     <h2 className="text-2xl font-semibold leading-tight sm:text-3xl md:text-4xl">
-                        Ce que les utilisateurs pensent de Shared.
+                        {t("home.reviews.title")}
                     </h2>
                 </div>
 

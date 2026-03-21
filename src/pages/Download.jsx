@@ -1,4 +1,5 @@
 import { createElement } from "react";
+import { useTranslation } from "react-i18next";
 import image from "../images/main-image.png";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 
@@ -13,23 +14,6 @@ const storeLabelBottomClass = "text-lg font-bold md:text-xl";
 const mainImageWrapClass = "relative z-10 flex w-full items-center justify-center";
 const mainImageClass = "h-auto w-full max-w-[15rem] object-contain md:max-w-[20rem] lg:max-w-[24rem]";
 
-const storeButtons = [
-    {
-        href: "https://apps.apple.com/fr/app/shared/id6748949959",
-        Icon: FaApple,
-        topLabel: "Télécharger sur",
-        bottomLabel: "l’App Store",
-        className: "bg-[var(--color-contrast)] text-[var(--color-text-inverse)] hover:bg-[var(--color-surface)] hover:text-[var(--color-contrast)]",
-    },
-    {
-        href: "#download",
-        Icon: FaGooglePlay,
-        topLabel: "Télécharger sur",
-        bottomLabel: "Google Play",
-        className: "bg-[var(--color-surface)] text-[var(--color-contrast)] hover:bg-[var(--color-contrast)] hover:text-[var(--color-text-inverse)]",
-    },
-];
-
 function StoreButton({ href, Icon, topLabel, bottomLabel, className }) {
     return (
         <a href={href} className={`${storeButtonBaseClass} ${className}`}>
@@ -43,12 +27,30 @@ function StoreButton({ href, Icon, topLabel, bottomLabel, className }) {
 }
 
 export default function Download() {
+    const { t } = useTranslation();
+    const storeButtons = [
+        {
+            href: "https://apps.apple.com/fr/app/shared/id6748949959",
+            Icon: FaApple,
+            topLabel: t("download.stores.downloadOn"),
+            bottomLabel: t("download.stores.appStore"),
+            className: "bg-[var(--color-contrast)] text-[var(--color-text-inverse)] hover:bg-[var(--color-surface)] hover:text-[var(--color-contrast)]",
+        },
+        {
+            href: "#download",
+            Icon: FaGooglePlay,
+            topLabel: t("download.stores.downloadOn"),
+            bottomLabel: t("download.stores.googlePlay"),
+            className: "bg-[var(--color-surface)] text-[var(--color-contrast)] hover:bg-[var(--color-contrast)] hover:text-[var(--color-text-inverse)]",
+        },
+    ];
+
     return (
         <section className={sectionClass}>
             <div className={contentClass}>
                 <h1 className="text-center text-4xl font-semibold leading-tight text-[var(--color-text-primary)] md:text-4xl lg:text-5xl">
-                    Tous vos souvenirs partagés,
-                    <br /> en 1 endroit.
+                    {t("download.titleLine1")}
+                    <br /> {t("download.titleLine2")}
                 </h1>
 
                 <div className={storeButtonsClass}>
@@ -69,7 +71,7 @@ export default function Download() {
                 <img
                     src={image}
                     className={mainImageClass}
-                    alt="Aperçu Shared 1"
+                    alt={t("download.previewAlt")}
                 />
             </div>
         </section>
