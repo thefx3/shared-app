@@ -4,19 +4,7 @@ import { HOME_REVIEW_COLUMNS, HOME_SLIDES } from "../data/homeContent";
 
 export default function Home() {
     return (
-        <div className="flex w-full flex-col items-center justify-center px-4 py-8 md:py-12">
-            <section className="flex w-full max-w-4xl flex-col items-center gap-2">
-                <h1 className="text-center leading-tight">
-                    <p className="text-3xl font-bold uppercase tracking-[0.18em] text-[var(--color-text-primary)] sm:text-4xl md:text-4xl">
-                        Shared
-                    </p>
-                    <br />
-                    <p className="text-lg italic text-[var(--color-text-secondary)] sm:text-xl md:text-2xl">
-                        l’application pour tous vos souvenirs partagés.
-                    </p>
-                </h1>
-            </section>
-
+        <div className="flex w-full flex-col items-center justify-center px-4 py-2 md:py-4">
             <HomeCarousel slides={HOME_SLIDES} />
             <HomeReviews reviewColumns={HOME_REVIEW_COLUMNS} />
         </div>

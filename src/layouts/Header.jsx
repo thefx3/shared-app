@@ -133,11 +133,14 @@ export default function Header() {
                             className="block h-10 w-auto max-w-16 shrink-0 rounded-lg object-contain lg:h-10 lg:max-w-none"
                         />
                     </Link>
+                    <p className="text-2xl font-bold uppercase tracking-widest text-[var(--color-text-primary)] md:text-2xl">
+                        Shared
+                    </p>
                 </div>
             </div>
 
             <div className="hidden w-full lg:flex lg:w-auto lg:flex-nowrap lg:flex-row lg:justify-start lg:gap-5">
-                <div className="flex w-full flex-col items-center justify-center gap-2 lg:w-auto lg:flex-row lg:flex-nowrap lg:justify-end lg:gap-2.5">
+                <div className="flex w-full flex-col items-center justify-center gap-2 lg:w-auto lg:flex-row lg:flex-nowrap lg:justify-end lg:gap-4">
                     {HEADER_NAV_ITEMS.map((item) => (
                         <HeaderIconButton
                             key={item.id}

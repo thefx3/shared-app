@@ -7,37 +7,37 @@ import image5 from "../images/images v2/image-5.png";
 export const HOME_SLIDES = [
     {
         image: image1,
-        title: "Au plus pres de tout ce que vous aimez... petit coquin.",
+        title: "Espace partagé",
         description:
-            "Retrouvez vos albums partages dans une interface claire, rapide et simple a parcourir, meme quand vous avez beaucoup de souvenirs a trier.",
+            "Avec tes amis seulement",
         cta: "Telecharger Shared",
     },
     {
         image: image2,
-        title: "Vos grilles restent belles, meme quand elles grandissent comme ma... .",
+        title: "Ton actualité",
         description:
-            "Chaque espace met en avant vos photos et videos avec une hierarchie nette pour retrouver les meilleurs moments en un coup d'oeil.",
+            "Des moments recents de tes proches",
         cta: "Telecharger Shared",
     },
     {
         image: image3,
-        title: "Le petit vaurien a créé son application.",
+        title: "Conversations privées.",
         description:
-            "Les conversations, reactions et partages restent connectes a vos contenus pour garder une experience vivante et vraiment collaborative.",
+            "Garde les conversations importantes",
         cta: "Telecharger Shared",
     },
     {
         image: image4,
-        title: "Paul est vraiment un enfoiré de première",
+        title: "Capture l'instant présent",
         description:
-            "Les conversations, reactions et partages restent connectes a vos contenus pour garder une experience vivante et vraiment collaborative.",
+            "Partage instantanément avec tes amis",
         cta: "Telecharger Shared",
     },
     {
         image: image5,
-        title: "Paul le petit sac à me...rde.",
+        title: "Tes souvenirs",
         description:
-            "Les conversations, reactions et partages restent connectes a vos contenus pour garder une experience vivante et vraiment collaborative.",
+            "Stockage illimités pour tes moments inoubliables",
         cta: "Telecharger Shared",
     },
 ];

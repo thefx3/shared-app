@@ -9,11 +9,11 @@ const carouselCtaClassName =
 
 function CarouselVisual({ slide, animationClassName }) {
     return (
-        <div className={`${animationClassName} absolute inset-0`}>
+        <div className={`${animationClassName} absolute inset-0 flex items-start justify-center`}>
             <img
                 src={slide.image}
                 alt={slide.title}
-                className="h-full w-full object-contain object-top"
+                className="block h-full w-auto max-w-full"
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
@@ -34,11 +34,9 @@ function getSlideVisualClassName(index, activeSlide, previousSlide) {
     return "opacity-0 pointer-events-none";
 }
 
-function CarouselCopy({ slide, animationClassName, overlay = false, inert = false }) {
-    const positionClassName = overlay ? "absolute inset-0" : "relative z-10";
-
+function CarouselCopy({ slide, animationClassName, inert = false }) {
     return (
-        <div className={`${animationClassName} ${positionClassName} flex flex-col items-center gap-5 lg:items-start`}>
+        <div className={`${animationClassName} absolute inset-0 flex h-full w-full flex-col items-center justify-start gap-5 text-center lg:items-start lg:text-left`}>
             <h2 className="text-2xl font-semibold leading-tight text-[var(--color-text-primary)] sm:text-3xl md:text-4xl">
                 {slide.title}
             </h2>
@@ -63,7 +61,6 @@ export default function HomeCarousel({ slides }) {
     const [activeSlide, setActiveSlide] = useState(0);
     const [previousSlide, setPreviousSlide] = useState(null);
     const fadeTimeoutRef = useRef(null);
-    const currentSlide = slides[activeSlide];
 
     const clearFadeTimeout = () => {
         window.clearTimeout(fadeTimeoutRef.current);
@@ -121,8 +118,8 @@ export default function HomeCarousel({ slides }) {
 
     return (
         <section className="mx-auto w-full max-w-6xl rounded-[2rem] px-4 py-8 sm:px-6 md:px-10 md:py-10">
-            <div className="grid items-start gap-6 lg:grid-cols-[minmax(280px,420px)_minmax(0,1fr)] lg:items-stretch lg:gap-10">
-                <div className="relative flex w-full justify-center lg:pt-4">
+            <div className="grid items-center gap-2 lg:grid-cols-[minmax(280px,420px)_minmax(0,1fr)] lg:gap-8">
+                <div className="relative flex w-full justify-center">
                     <div className="relative mx-auto w-full max-w-[560px] overflow-hidden aspect-[4/5] min-h-[320px] sm:min-h-[540px] lg:min-h-[660px]">
                         {slides.map((slide, index) => (
                             <CarouselVisual
@@ -134,25 +131,19 @@ export default function HomeCarousel({ slides }) {
                     </div>
                 </div>
 
-                <div className="mx-auto flex max-w-xl flex-col items-center text-center lg:h-full lg:items-start lg:text-left">
-                    <div className="relative mt-4 min-h-[240px] w-full sm:min-h-[320px]">
-                        {previousSlide !== null && (
+                <div className="mx-auto flex w-full max-w-xl flex-col items-center text-center lg:items-start lg:text-left">
+                    <div className="relative mt-4 min-h-[220px] w-full max-w-[34rem] sm:min-h-[260px] lg:min-h-[320px]">
+                        {slides.map((slide, index) => (
                             <CarouselCopy
-                                slide={slides[previousSlide]}
-                                animationClassName="carousel-fade-leave pointer-events-none"
-                                overlay
-                                inert
+                                key={`${slide.title}-${index}`}
+                                slide={slide}
+                                animationClassName={getSlideVisualClassName(index, activeSlide, previousSlide)}
+                                inert={index !== activeSlide}
                             />
-                        )}
-
-                        <CarouselCopy
-                            key={`${currentSlide.title}-${activeSlide}`}
-                            slide={currentSlide}
-                            animationClassName="carousel-fade-enter"
-                        />
+                        ))}
                     </div>
 
-                    <div className="mt-6 flex items-center justify-center gap-3 self-center lg:mb-10 lg:mt-auto lg:self-start lg:justify-start lg:pt-8">
+                    <div className="mt-6 flex items-center justify-center gap-3 self-center lg:self-start lg:justify-start">
                         {slides.map((slide, index) => (
                             <button
                                 key={`${slide.image}-${index}`}

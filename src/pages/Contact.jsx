@@ -88,7 +88,8 @@ export default function Contact() {
                         <h3 className="text-3xl font-semibold text-[var(--color-text-primary)]">Envoyer un message</h3>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="grid gap-5 text-left">
+                    <form onSubmit={handleSubmit} className="grid gap-5 text-left" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="59a6c0ee-8505-41e4-a634-7e6a38b31336"></input>
                         <div className="grid gap-5 sm:grid-cols-2">
                             <label className={formLabelClassName}>
                                 Nom

@@ -15,13 +15,6 @@ export const HEADER_NAV_ITEMS = [
         match: PAGE_PATHS.home,
     },
     {
-        id: "features",
-        label: "Fonctionnalites",
-        Icon: Grid2x2,
-        href: "/#features",
-        match: "#features",
-    },
-    {
         id: "download",
         label: "Camera",
         Icon: Camera,
@@ -35,13 +28,6 @@ export const HEADER_NAV_ITEMS = [
         Icon: Mail,
         href: PAGE_PATHS.contact,
         match: PAGE_PATHS.contact,
-    },
-    {
-        id: "about",
-        label: "A propos",
-        Icon: Info,
-        href: "/#about",
-        match: "#about",
     },
 ];
 
