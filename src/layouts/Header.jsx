@@ -29,19 +29,6 @@ function getActiveNavigationId(location) {
     return "home";
 }
 
-function findSearchMatch(searchTerm) {
-    const normalizedSearch = searchTerm.trim().toLowerCase();
-
-    if (!normalizedSearch) {
-        return null;
-    }
-
-    return SEARCH_NAV_ITEMS.find(({ id, label }) => {
-        const normalizedLabel = label.toLowerCase();
-        return normalizedLabel.includes(normalizedSearch) || id.includes(normalizedSearch);
-    });
-}
-
 function HeaderIconButton({ item, isActive, onSelect }) {
     const activeClassName = item.featured
         ? "scale-105 bg-[var(--color-contrast)] text-[var(--color-text-inverse)] shadow-app-floating"
@@ -82,7 +69,6 @@ function MobileMenuButton({ item, isActive, onSelect }) {
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [searchTerm, setSearchTerm] = useState("");
     const location = useLocation();
     const navigate = useNavigate();
     const activeId = getActiveNavigationId(location);
@@ -105,18 +91,6 @@ export default function Header() {
 
         navigate(item.href);
         closeMenu();
-    };
-
-    const handleSearchSubmit = (event) => {
-        event.preventDefault();
-
-        const matchedLink = findSearchMatch(searchTerm);
-        if (!matchedLink) {
-            return;
-        }
-
-        openNavigationItem(matchedLink);
-        setSearchTerm("");
     };
 
     return (
@@ -149,21 +123,9 @@ export default function Header() {
                         />
                     </Link>
 
-                    <form
-                        className="hidden items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 shadow-sm transition-all duration-200 focus-within:border-[var(--color-brand)] focus-within:ring-2 focus-within:ring-[var(--color-brand-ring)] xl:flex"
-                        onSubmit={handleSearchSubmit}
-                        role="search"
-                    >
-                        <Search className="h-4 w-4 text-[var(--color-text-tertiary)]" aria-hidden="true" />
-                        <input
-                            type="search"
-                            value={searchTerm}
-                            onChange={(event) => setSearchTerm(event.target.value)}
-                            placeholder="Rechercher une section"
-                            className="w-44 bg-transparent text-sm text-[var(--color-text-body)] outline-none placeholder:text-[var(--color-text-muted)] lg:w-56"
-                            aria-label="Rechercher une section"
-                        />
-                    </form>
+                    <p className="text-2xl font-bold uppercase tracking-widest text-[var(--color-text-primary)] md:text-2xl">
+                        Shared
+                    </p>
                 </div>
             </div>
 
@@ -214,21 +176,9 @@ export default function Header() {
                 }`}
             >
                 <div className="flex flex-col items-start gap-2 px-3 py-3">
-                    <form
-                        className="flex w-full items-center gap-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 shadow-sm transition-all duration-200 focus-within:border-[var(--color-brand)] focus-within:ring-2 focus-within:ring-[var(--color-brand-ring)]"
-                        onSubmit={handleSearchSubmit}
-                        role="search"
-                    >
-                        <Search className="h-4 w-4 text-[var(--color-text-tertiary)]" aria-hidden="true" />
-                        <input
-                            type="search"
-                            value={searchTerm}
-                            onChange={(event) => setSearchTerm(event.target.value)}
-                            placeholder="Rechercher..."
-                            className="w-full bg-transparent text-sm text-[var(--color-text-body)] outline-none placeholder:text-[var(--color-text-muted)]"
-                            aria-label="Rechercher..."
-                        />
-                    </form>
+                    <p className="text-2xl font-bold uppercase tracking-widest text-[var(--color-text-primary)] md:text-2xl">
+                        Shared
+                    </p>
 
                     {HEADER_NAV_ITEMS.map((item) => (
                         <MobileMenuButton

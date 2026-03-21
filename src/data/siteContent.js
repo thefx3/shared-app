@@ -47,7 +47,6 @@ export const HEADER_NAV_ITEMS = [
 
 export const HEADER_ACTIONS = [
     { id: "download", label: "Telecharger", href: PAGE_PATHS.download },
-    { id: "contact", label: "Me contacter", href: PAGE_PATHS.contact },
 ];
 
 export const SEARCH_NAV_ITEMS = [
