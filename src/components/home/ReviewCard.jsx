@@ -2,7 +2,7 @@ const REVIEW_STARS = ["★", "★", "★", "★", "★"];
 
 export default function ReviewCard({ review }) {
     return (
-        <article className="rounded-[1.75rem] border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-6 shadow-app-soft">
+        <article className="w-full min-w-0 rounded-[1.75rem] border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-6 shadow-app-soft">
             <div className="mb-4 flex items-center gap-1 text-[var(--color-gradient-orange)]">
                 {REVIEW_STARS.map((star, index) => (
                     <span key={`${review.role}-star-${index}`}>{star}</span>
