@@ -84,7 +84,7 @@ export default function HomeCarousel({ slides }) {
     }, []);
 
     return (
-        <section id="features" className="w-full max-w-6xl rounded-[2rem] px-6 py-8 md:px-10 md:py-10">
+        <section className="w-full max-w-6xl rounded-[2rem] px-6 py-8 md:px-10 md:py-10">
             <div className="grid items-center gap-6 lg:grid-cols-[minmax(280px,420px)_minmax(0,1fr)] lg:items-stretch lg:gap-10">
                 <div className="relative flex justify-center">
                     <div className="relative flex w-full max-w-[480px] items-center justify-center overflow-hidden">
