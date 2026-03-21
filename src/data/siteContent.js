@@ -32,7 +32,7 @@ export const HEADER_NAV_ITEMS = [
 ];
 
 export const HEADER_ACTIONS = [
-    { id: "download", label: "Telecharger", href: PAGE_PATHS.download },
+    { id: "download", label: "Télécharger", href: PAGE_PATHS.download },
 ];
 
 export const SEARCH_NAV_ITEMS = [
@@ -45,13 +45,13 @@ export const FOOTER_SECTIONS = [
     {
         title: "Produit",
         links: [
-            { label: "Fonctionnalites", href: "/#features" },
-            { label: "Telecharger", href: PAGE_PATHS.download },
+            { label: "Fonctionnalités", href: "/#home" },
+            { label: "Télécharger", href: PAGE_PATHS.download },
         ],
     },
     {
-        title: "Entreprise",
-        links: [{ label: "Autres apps", href: "/#apps" }],
+        title: "Orion Tech",
+        links: [{ label: "Autres apps", href: "/#oriontech" }],
     },
     {
         title: "Ressources",
@@ -66,8 +66,8 @@ export const CONTACT_DETAILS = [
     {
         icon: Mail,
         label: "Email",
-        value: "hello@shared.app",
-        href: "mailto:hello@shared.app",
+        value: "sharedapp.contact@gmail.com",
+        href: "mailto:sharedapp.contact@gmail.com",
     },
     {
         icon: MapPin,
@@ -76,7 +76,7 @@ export const CONTACT_DETAILS = [
     },
     {
         icon: MessageCircle,
-        label: "Reponse",
+        label: "Réponse",
         value: "Sous 24 a 48 heures",
     },
 ];

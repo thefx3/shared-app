@@ -11,7 +11,7 @@ const storeLabelClass = "flex flex-col text-left leading-tight";
 const storeLabelTopClass = "text-sm font-normal md:text-base";
 const storeLabelBottomClass = "text-lg font-bold md:text-xl";
 const mainImageWrapClass = "relative z-10 flex w-full items-center justify-center";
-const mainImageClass = "h-auto w-full max-w-[22.5rem] object-contain md:max-w-xl";
+const mainImageClass = "h-auto w-full max-w-[15rem] object-contain md:max-w-[20rem] lg:max-w-[24rem]";
 
 const storeButtons = [
     {
