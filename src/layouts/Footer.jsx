@@ -43,13 +43,13 @@ export default function Footer() {
                             to={PAGE_PATHS.download}
                             className="inline-flex items-center justify-center rounded-full bg-[var(--color-surface)] px-5 py-2.5 text-sm font-semibold text-[var(--color-gradient-violet)] transition-colors duration-200 hover:bg-[var(--color-surface-hover)]"
                         >
-                            Telecharger
+                            Télécharger
                         </Link>
                         <Link
                             to={PAGE_PATHS.contact}
                             className="inline-flex items-center justify-center rounded-full border border-[var(--color-border-inverse)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text-inverse)] transition-colors duration-200 hover:bg-[var(--color-footer-hover)]"
                         >
-                            Me contacter
+                            Contact
                         </Link>
                     </div>
                 </div>
@@ -75,7 +75,7 @@ export default function Footer() {
                     <p>Copyright 2026 - Shared</p>
                     <div className="flex items-center gap-4">
                         <a href="/#privacy" className="transition-colors duration-200 hover:text-[var(--color-text-inverse)]">
-                            Confidentialite
+                            Confidentialité
                         </a>
                         <a href="/#terms" className="transition-colors duration-200 hover:text-[var(--color-text-inverse)]">
                             Conditions

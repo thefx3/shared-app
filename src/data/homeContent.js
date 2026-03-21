@@ -9,89 +9,89 @@ export const HOME_SLIDES = [
         image: image1,
         title: "Espace partagé",
         description:
-            "Avec tes amis seulement",
+            "Crée un espace privé avec tes amis pour retrouver facilement vos photos, vos vidéos et tous les moments que vous voulez garder ensemble.",
         cta: "Telecharger Shared",
     },
     {
         image: image2,
         title: "Ton actualité",
         description:
-            "Des moments recents de tes proches",
+            "Découvre en un coup d'oeil les moments récents de tes proches, leurs nouveautés, leurs photos et les souvenirs qu'ils ont choisi de partager avec toi.",
         cta: "Telecharger Shared",
     },
     {
         image: image3,
         title: "Conversations privées.",
         description:
-            "Garde les conversations importantes",
+            "Garde les conversations importantes au même endroit que tes souvenirs, pour ne jamais perdre le contexte des échanges qui comptent vraiment.",
         cta: "Telecharger Shared",
     },
     {
         image: image4,
         title: "Capture l'instant présent",
         description:
-            "Partage instantanément avec tes amis",
+            "Partage instantanément avec tes amis les moments que tu vis sur le moment, sans friction, dans un espace simple, rapide et pensé pour rester vivant.",
         cta: "Telecharger Shared",
     },
     {
         image: image5,
         title: "Tes souvenirs",
         description:
-            "Stockage illimités pour tes moments inoubliables",
+            "Profite d'un espace pensé pour conserver durablement tes moments inoubliables, organiser tes contenus et les retrouver quand tu veux.",
         cta: "Telecharger Shared",
     },
 ];
 
 export const HOME_REVIEWS = [
     {
-        name: "Paul",
-        role: "Le chômeur",
-        quote: "Shared m'a aidé à sortir de ma période de chômage prolongé.",
+        name: "Camille Renaud",
+        role: "Photographe freelance",
+        quote: "Shared me permet de centraliser les souvenirs de mes shootings et de les partager rapidement avec mes clients et mes proches.",
     },
     {
-        name: "Paul",
-        role: "Le goinfre",
-        quote: "Je mange à mes heures perdues et Shared m'aide à organiser mes souvenirs de mes repas les plus mémorables.",
+        name: "Lucas Morel",
+        role: "Chef de projet",
+        quote: "L'application est simple, fluide et surtout pratique pour retrouver en quelques secondes les photos importantes d'un événement.",
     },
     {
-        name: "Paul",
-        role: "L'hypocondriaque",
-        quote: "Je suis tellement obsédé par ma santé que j'ai utilisé Shared pour partager mes photos chez le docteur.",
+        name: "Sarah El Amrani",
+        role: "Etudiante",
+        quote: "Avec Shared, je peux garder tous les souvenirs de mes voyages avec mes amis sans perdre de temps entre plusieurs applis.",
     },
     {
-        name: "Paul",
-        role: "L'acteur",
-        quote: "Johnny Depp et Brad n'ont qu'a bien se tenir, j'arrive avec mes talents d'acteur et mon application de souvenirs partagés.",
+        name: "Nicolas Perrin",
+        role: "Réalisateur vidéo",
+        quote: "J'aime le côté propre de l'interface. Tout reste lisible, même quand on commence à accumuler beaucoup de contenus.",
     },
     {
-        name: "Paul",
-        role: "Le tueur de zombies",
-        quote: "Je tue pas seulement des zombies, je tue aussi le temps en organisant mes souvenirs avec Shared.",
+        name: "Julie Martel",
+        role: "Responsable communication",
+        quote: "On a commencé à utiliser Shared en famille et tout le monde s'y retrouve. C'est devenu notre espace commun pour nos souvenirs.",
     },
     {
-        name: "Paul",
-        role: "Le développeur et trader",
-        quote: "Je développe, je trade mais je suis aussi un grand fan de Shared.",
+        name: "Antoine Girard",
+        role: "Développeur produit",
+        quote: "Le ressenti est rapide et agréable. On sent que l'application a été pensée pour partager sans friction.",
     },
     {
-        name: "Paul",
-        role: "L'imbécile heureux'",
-        quote: "Je ne suis pas le plus intelligent mais Shared me rend heureux et c'est tout ce qui compte.",
+        name: "Léa Roche",
+        role: "Illustratrice",
+        quote: "J'utilise Shared pour conserver mes inspirations, mes photos et les moments créatifs que j'ai envie de retrouver plus tard.",
     },
     {
-        name: "Paul",
-        role: "Le paulochon des cavernes",
-        quote: "Heureux de voir que même les paulochons des cavernes peuvent profiter de Shared pour organiser leurs souvenirs préhistoriques.",
+        name: "Thomas Viala",
+        role: "Professeur",
+        quote: "Le format des espaces partagés est vraiment utile. Chacun peut contribuer et on garde une trace claire de tout ce qui compte.",
     },
     {
-        name: "Paul",
-        role: "Le maniaque",
-        quote: "J'ai la manie de tout organiser, et Shared est l'outil parfait pour satisfaire mon besoin de contrôle sur mes souvenirs partagés.",
+        name: "Inès Carvalho",
+        role: "Architecte d'intérieur",
+        quote: "J'apprécie particulièrement le soin apporté à la présentation. Les souvenirs sont mieux mis en valeur que sur une galerie classique.",
     },
     {
-        name: "Paul",
-        role: "L'artiste de rue",
-        quote: "Artiste un jour, artiste toujours. Shared m'aide à organiser mes souvenirs de mes performances de rue et à les partager avec mes fans.",
+        name: "Mathieu Bernard",
+        role: "Entrepreneur",
+        quote: "Shared donne envie de revenir consulter ses albums. C'est rare d'avoir une appli à la fois utile, claire et vraiment agréable à utiliser.",
     },
 ];
 
