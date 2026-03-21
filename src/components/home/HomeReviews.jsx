@@ -33,10 +33,10 @@ export default function HomeReviews({ reviewColumns }) {
                     <span className="rounded-full bg-[var(--color-brand-soft)] px-4 py-1 text-sm font-semibold tracking-wide text-[var(--color-brand-strong)]">
                         Reviews
                     </span>
-                    <h2 className="text-3xl font-semibold leading-tight md:text-4xl">
+                    <h2 className="text-2xl font-semibold leading-tight sm:text-3xl md:text-4xl">
                         Ce que les utilisateurs pensent de Shared.
                     </h2>
-                    <p className="max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] md:text-lg">
+                    <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base md:text-lg">
                         Une dizaine d'avis mock dans deux colonnes animees pour retrouver un rendu plus vivant et plus editorial.
                     </p>
                 </div>

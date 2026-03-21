@@ -5,7 +5,7 @@ import { PAGE_PATHS } from "../../data/siteContent";
 const AUTOPLAY_DELAY_MS = 5000;
 const TRANSITION_DURATION_MS = 650;
 const carouselCtaClassName =
-    "inline-flex items-center justify-center rounded-full bg-[var(--color-brand-strong)] px-5 py-3 text-sm font-semibold text-[var(--color-text-inverse)] transition-colors duration-200 hover:bg-[var(--color-brand-strong-hover)]";
+    "inline-flex items-center justify-center rounded-full bg-[var(--color-brand-strong)] px-4 py-2.5 text-xs font-semibold text-[var(--color-text-inverse)] transition-colors duration-200 hover:bg-[var(--color-brand-strong-hover)] sm:px-5 sm:py-3 sm:text-sm";
 
 function CarouselVisual({ slide, animationClassName }) {
     return (
@@ -22,15 +22,27 @@ function CarouselVisual({ slide, animationClassName }) {
     );
 }
 
+function getSlideVisualClassName(index, activeSlide, previousSlide) {
+    if (index === activeSlide) {
+        return "carousel-fade-enter z-10";
+    }
+
+    if (index === previousSlide) {
+        return "carousel-fade-leave z-0 pointer-events-none";
+    }
+
+    return "opacity-0 pointer-events-none";
+}
+
 function CarouselCopy({ slide, animationClassName, overlay = false, inert = false }) {
     const positionClassName = overlay ? "absolute inset-0" : "relative z-10";
 
     return (
         <div className={`${animationClassName} ${positionClassName} flex flex-col items-center gap-5 lg:items-start`}>
-            <h2 className="text-3xl font-semibold leading-tight text-[var(--color-text-primary)] md:text-4xl">
+            <h2 className="text-2xl font-semibold leading-tight text-[var(--color-text-primary)] sm:text-3xl md:text-4xl">
                 {slide.title}
             </h2>
-            <p className="text-base leading-7 text-[var(--color-text-secondary)] md:text-lg">
+            <p className="text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base md:text-lg">
                 {slide.description}
             </p>
 
@@ -50,7 +62,6 @@ function CarouselCopy({ slide, animationClassName, overlay = false, inert = fals
 export default function HomeCarousel({ slides }) {
     const [activeSlide, setActiveSlide] = useState(0);
     const [previousSlide, setPreviousSlide] = useState(null);
-    const [transitionKey, setTransitionKey] = useState(0);
     const fadeTimeoutRef = useRef(null);
     const currentSlide = slides[activeSlide];
 
@@ -72,7 +83,6 @@ export default function HomeCarousel({ slides }) {
 
         setPreviousSlide(currentIndex);
         setActiveSlide(nextIndex);
-        setTransitionKey((currentKey) => currentKey + 1);
         scheduleFadeCleanup();
     };
 
@@ -95,7 +105,6 @@ export default function HomeCarousel({ slides }) {
             clearFadeTimeout();
             setPreviousSlide(activeSlide);
             setActiveSlide((activeSlide + 1) % slides.length);
-            setTransitionKey((currentKey) => currentKey + 1);
             fadeTimeoutRef.current = window.setTimeout(() => {
                 setPreviousSlide(null);
             }, TRANSITION_DURATION_MS);
@@ -111,27 +120,22 @@ export default function HomeCarousel({ slides }) {
     }, []);
 
     return (
-        <section className="w-full max-w-6xl rounded-[2rem] px-6 py-8 md:px-10 md:py-10">
+        <section className="mx-auto w-full max-w-6xl rounded-[2rem] px-4 py-8 sm:px-6 md:px-10 md:py-10">
             <div className="grid items-start gap-6 lg:grid-cols-[minmax(280px,420px)_minmax(0,1fr)] lg:items-stretch lg:gap-10">
-                <div className="relative flex justify-center lg:pt-4">
-                    <div className="relative w-full max-w-[560px] overflow-hidden aspect-[4/5] min-h-[400px] sm:min-h-[540px] lg:min-h-[660px]">
-                        {previousSlide !== null && (
+                <div className="relative flex w-full justify-center lg:pt-4">
+                    <div className="relative mx-auto w-full max-w-[560px] overflow-hidden aspect-[4/5] min-h-[320px] sm:min-h-[540px] lg:min-h-[660px]">
+                        {slides.map((slide, index) => (
                             <CarouselVisual
-                                slide={slides[previousSlide]}
-                                animationClassName="carousel-fade-leave pointer-events-none"
+                                key={slide.image}
+                                slide={slide}
+                                animationClassName={getSlideVisualClassName(index, activeSlide, previousSlide)}
                             />
-                        )}
-
-                        <CarouselVisual
-                            key={`${currentSlide.image}-${transitionKey}`}
-                            slide={currentSlide}
-                            animationClassName="carousel-fade-enter relative z-10"
-                        />
+                        ))}
                     </div>
                 </div>
 
                 <div className="mx-auto flex max-w-xl flex-col items-center text-center lg:h-full lg:items-start lg:text-left">
-                    <div className="relative mt-4 min-h-[280px] w-full sm:min-h-[320px]">
+                    <div className="relative mt-4 min-h-[240px] w-full sm:min-h-[320px]">
                         {previousSlide !== null && (
                             <CarouselCopy
                                 slide={slides[previousSlide]}
@@ -142,7 +146,7 @@ export default function HomeCarousel({ slides }) {
                         )}
 
                         <CarouselCopy
-                            key={`${currentSlide.title}-${activeSlide}-${transitionKey}`}
+                            key={`${currentSlide.title}-${activeSlide}`}
                             slide={currentSlide}
                             animationClassName="carousel-fade-enter"
                         />

@@ -67,6 +67,17 @@ function MobileMenuButton({ item, isActive, onSelect }) {
     );
 }
 
+function MobileActionLabel({ action }) {
+    return (
+        <>
+            <span className="hidden min-[361px]:inline">{action.label}</span>
+            <span className="inline min-[361px]:hidden">
+                {action.id === "download" ? "DL" : "Contact"}
+            </span>
+        </>
+    );
+}
+
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const location = useLocation();
@@ -122,10 +133,6 @@ export default function Header() {
                             className="block h-10 w-auto max-w-16 shrink-0 rounded-lg object-contain lg:h-10 lg:max-w-none"
                         />
                     </Link>
-
-                    <p className="text-2xl font-bold uppercase tracking-widest text-[var(--color-text-primary)] md:text-2xl">
-                        Shared
-                    </p>
                 </div>
             </div>
 
@@ -161,9 +168,9 @@ export default function Header() {
                         key={action.id}
                         to={action.href}
                         onClick={closeMenu}
-                        className={`h-9 px-2.5 py-2 text-[12px] sm:px-3 sm:text-[14px] ${actionButtonBaseClass}`}
+                        className={`h-9 px-2 py-2 text-[11px] sm:px-3 sm:text-[14px] ${actionButtonBaseClass}`}
                     >
-                        {action.label}
+                        <MobileActionLabel action={action} />
                     </Link>
                 ))}
             </div>
