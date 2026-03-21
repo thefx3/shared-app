@@ -36,19 +36,19 @@ export default function Download() {
     return (
         <section className={sectionClass}>
             <div className={contentClass}>
-                <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold leading-tight text-center">
+                <h1 className="text-4xl md:text-4xl lg:text-5xl font-semibold leading-tight text-center">
                     Tous vos souvenirs partagés,
                     <br></br> en 1 endroit.
                 </h1>
  
                 <div className={storeButtonsClass}>
-                    {storeButtons.map(({ href, Icon, topLabel, bottomLabel, className }) => (
+                    {storeButtons.map(({ href, Icon: IconComponent, topLabel, bottomLabel, className }) => (
                         <a
                             key={href}
                             href={href}
                             className={`${storeButtonBaseClass} ${className}`}
                         >
-                            <Icon className={storeIconClass} />
+                            <IconComponent className={storeIconClass} />
                             <span className={storeLabelClass}>
                                 <span className={storeLabelTopClass}>{topLabel}</span>
                                 <span className={storeLabelBottomClass}>{bottomLabel}</span>

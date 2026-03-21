@@ -46,12 +46,67 @@
     .message-opacity-75 {
         --message-opacity: 0.55;
     }
+
+    @keyframes carousel-fade-in {
+        0% {
+            opacity: 0;
+            transform: scale(0.992);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes carousel-fade-out {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: scale(1.008);
+        }
+    }
+
+    @keyframes review-scroll-up {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-50%);
+        }
+    }
+
+    .carousel-fade-enter {
+        animation: carousel-fade-in 500ms ease-in-out forwards;
+    }
+
+    .carousel-fade-leave {
+        animation: carousel-fade-out 500ms ease-in-out forwards;
+    }
+
+    .review-track {
+        animation: review-scroll-up 70s linear infinite;
+        will-change: transform;
+    }
+
+    .review-track--reverse {
+        animation-direction: reverse;
+    }
+
     @media (min-width: 640px) {
         .message-opacity-70 {
             --message-opacity: 0.7;
         }
         .message-opacity-75 {
             --message-opacity: 0.75;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .review-track {
+            animation: none;
         }
     }
 }

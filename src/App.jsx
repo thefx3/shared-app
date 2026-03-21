@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import MainPage from "./pages/MainPage.jsx";
 import MainLayout from "./layouts/MainLayout.jsx";
 import Download from "./pages/Download.jsx";
+import Contact from "./pages/Contact.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 function App() {
@@ -22,6 +23,14 @@ function App() {
         element={
           <MainLayout>
             <Download />
+          </MainLayout>
+        }
+      />
+      <Route
+        path="/contact"
+        element={
+          <MainLayout>
+            <Contact />
           </MainLayout>
         }
       />
