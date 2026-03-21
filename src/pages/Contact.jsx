@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CONTACT_DETAILS } from "../data/siteContent";
 
+const WEB3FORMS_ACCESS_KEY = "59a6c0ee-8505-41e4-a634-7e6a38b31336";
 const formLabelClassName = "flex flex-col gap-2 text-sm font-medium text-[var(--color-text-body)]";
 const fieldClassName =
     "w-full rounded-xl border border-[var(--color-border)] px-4 py-3 text-[var(--color-text-primary)] outline-none transition-colors duration-200";
@@ -39,15 +40,12 @@ export default function Contact() {
         setStatus({ state: "idle", message: "" });
 
         const formData = new FormData(event.target);
-        formData.append("access_key", "7dd040f5-4eb6-48c0-974d-e1c311998119");
+        formData.append("access_key", WEB3FORMS_ACCESS_KEY);
 
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 body: formData,
-                headers: {
-                    Accept: "application/json",
-                },
             });
 
             const data = await response.json();
@@ -56,7 +54,10 @@ export default function Contact() {
                 setStatus({ state: "success", message: "Merci, votre message a bien ete envoye." });
                 event.target.reset();
             } else {
-                setStatus({ state: "error", message: "Une erreur est survenue. Merci de reessayer." });
+                setStatus({
+                    state: "error",
+                    message: data.message || "Une erreur est survenue. Merci de reessayer.",
+                });
             }
         } catch {
             setStatus({ state: "error", message: "Impossible d'envoyer le message pour le moment." });
@@ -88,8 +89,7 @@ export default function Contact() {
                         <h3 className="text-3xl font-semibold text-[var(--color-text-primary)]">Envoyer un message</h3>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="grid gap-5 text-left" action="https://api.web3forms.com/submit" method="POST">
-                        <input type="hidden" name="access_key" value="59a6c0ee-8505-41e4-a634-7e6a38b31336"></input>
+                    <form onSubmit={handleSubmit} className="grid gap-5 text-left">
                         <div className="grid gap-5 sm:grid-cols-2">
                             <label className={formLabelClassName}>
                                 Nom
